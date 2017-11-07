@@ -1,0 +1,28 @@
+{
+  "name": "gk-loader",
+  "authors": [
+    "EZoUI <ezoservice@icsc.com.tw>"
+  ],
+  "main": "gk-loader.js",
+  "keywords": [
+    "gk",
+    "loader"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.ezoui.com/",
+  "dependencies": {
+    "requirejs": "master",
+    "require-css": "master",
+    "require-text": "https://github.com/ezoapp/require-text.git#gk-fix",
+    "jquery.gk": "master"
+  },
+  "_release": "ecc4a77f8b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ecc4a77f8bba3655c1d1b5a0b3f4498d0e9aba42"
+  },
+  "_source": "https://github.com/ezoapp/gk-loader.git",
+  "_target": "master",
+  "_originalSource": "gk-loader"
+}

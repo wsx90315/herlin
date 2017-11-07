@@ -1,0 +1,108 @@
+<element name='youtube'>
+
+  <template>
+    <div id='{{id}}' style="position:relative;width:100%;padding-bottom:65%;">
+      <div style="position:absolute;top:0;bottom:0;right:0;left:0;">
+        <img class='js-youtube' style="width:100%;height:100%;" data-gk-src='{{src}}' width='{{width}}' height='{{height}}' videoId='{{videoId}}' url='{{url}}'>
+        <content></content>
+      </div>
+    </div>
+  </template>
+
+  <script>
+  registerElement('youtube', {
+
+    init: function() {
+      var self = this,
+        $ele = this.$ele,
+        $img = this.$ele.find('.js-youtube'),
+        re = /\d+\D+/,
+        imgSrc = $img.attr('data-gk-src'),
+        width = $img.attr('width'),
+        height = $img.attr('height'),
+        videoId = $img.attr('videoId'),
+        url = $img.attr('url');
+
+      // determine videoId and img src
+      if (url !== '{{url}}') {
+        var ytId = getLinkId(url);
+        if (ytId) {
+          videoId = ytId;
+          $img.attr('videoId', videoId);
+        }
+      }
+      if (imgSrc !== '{{src}}') {
+        $img.attr('src', imgSrc);
+      } else {
+        $img.attr('src', getThumbnailImg(videoId));
+      }
+
+      // determine width and height
+      if (width) {
+        re.test(width) || (width = width + 'px');
+        $ele.css('width', width)
+      }
+      if (height) {
+        re.test(height) || (height = height + 'px');
+        $ele.css('padding-bottom', height)
+      }
+
+      // bind event handlers
+      $ele.on('click', $.proxy(self.__clickHandler, self));
+      if ($.mobile) {
+        $page = $ele.parents('[data-role="page"]');
+        $page.on('pagebeforehide', function() {
+          self.clear();
+        })
+      }
+    },
+
+    clear: function() {
+      var self = this,
+        $img = self.$ele.find('.js-youtube');
+      if (self.iframe) {
+        self.iframe.remove();
+      }
+      $img.show();
+    },
+
+    __clickHandler: function() {
+      var self = this,
+        $img = self.$ele.find('.js-youtube');
+
+      if (typeof $img.attr('preview') === 'undefined') {
+        $img.after('<iframe type="text/html" ' +
+          'style="width:100%;height:100%" ' +
+          'src="http://www.youtube.com/embed/' + $img.attr('videoId') + '?' +
+          'autoplay=1&loop=1&rel=0&wmode=transparent" frameborder="0"></iframe>');
+
+        self.iframe = $img.next();
+        $img.hide();
+      }
+    },
+
+    destroy: function() {
+      this.$ele.off('click');
+    }
+
+  });
+
+  function getThumbnailImg(id) {
+    return '//i.ytimg.com/vi/' + id + '/mqdefault.jpg';
+  }
+
+  function getLinkId(url) {
+    var a = document.createElement('a'),
+      id = '';
+    a.href = url;
+    a.search.substr(1).split('&').some(function(part) {
+      if (part.indexOf('v=') === 0) {
+        id = part.substr(2);
+        return true;
+      }
+    });
+    return id;
+  }
+  </script>
+
+</element>

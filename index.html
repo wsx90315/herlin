@@ -1,0 +1,4038 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>EZoApp</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * &apos;unsafe-inline&apos; &apos;unsafe-eval&apos; data: blob: filesystem:">    
+        <link rel="stylesheet" href="163.23.249.123/css/normalize.css">
+          <link rel="stylesheet" href="163.23.249.123/gk/lib/jquery.mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+              <link href="www.myhito.com.tw/test/css/nativedroid2.css" rel="stylesheet">
+              <!-- Export CSS  -->
+      <style>
+        .ui-page { -webkit-backface-visibility:hidden; }
+.ee{ padding: 0;}
+.eee{background:#eee; padding: 0;}
+.whi{background:#fff}
+.nd2-card,.ui-navbar,#colcont,.ui-select,#sallist,.ui-listview{background-color:#fff}
+a#rmbtn{background-color:rgba(193,50,142,0.6);color:#211e55;}
+.resspc p{font-size:0.7em; color:#444;}
+.photo {cursor: pointer;margin: 6px;width:100%;height: 200px;vertical-align: top;}
+@media only screen and (max-width: 280px) {.photo { width: 85%; }}
+.prodetimg {border: 7px groove rgb(255, 255, 255);cursor: pointer;margin: 6px;width: 95%;vertical-align: top;}
+.desing{width:50%;float: left; height:180px}
+.deig{margin:1px;width:90%;height:90%;}
+#gk-prodlist li a img{height: 100%;}
+li{display:block;}
+#colcont iframe{width:100%; }
+#qr2{margin:0 auto;}
+.workimg{width:50%;float: left; height:50% }
+.dpurple{height:60%;text-align:center;background-color:#eee;}
+.desimg{margin-top:20px;width:40%;border-radius:10% }
+.can{ text-align:center}F
+.red{color:red;}
+.blue{color:blue;}
+.mybufo{background-color:#eee;height:40%;text-align:center;}
+#colcont img{width:100%!important;height:64%!important;}
+.mylist hr{margin:0;}
+.pd{padding-left:20px}
+.salondiv{padding-bottom:10px;padding-top:10px;padding-right:20px;border-radius:5px;background:#fff;margin-bottom:1px;padding-left:10px;}
+.salh{color:#E91E63;margin:0px;font-weight:bold;padding-bottom:8px;}
+#newp{color:red;}
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  margin-right: 4px;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transform: translate(-300px, 0) scale(4);
+  font-size: 23px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.list-block {
+   margin-top: 0.55rem ;
+    margin-bottom: 1.75rem ;
+    font-size: 1.05rem;
+}
+.bx-viewport{border:0px;}
+
+.list-block ul {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: #fff;
+        border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+.list-block li {
+    position: relative;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.list-block .item-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    min-height: 2.2rem;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: .75rem;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.list-block.media-list .item-inner, .list-block li.media-item .item-inner {
+    display: block;
+    padding-top: .5rem;
+    padding-bottom: .45rem;
+    -ms-flex-item-align: stretch;
+    -webkit-align-self: stretch;
+    align-self: stretch;
+}
+.list-block .item-inner {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    min-height: 2.2rem;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: .4rem;
+    padding-right: .75rem;
+    padding-bottom: .35rem;
+    border-bottom: 1px solid #e7e7e7;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+@keyframes slidy {
+0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; }
+}
+
+div#indexslider { overflow: hidden; }
+div#indexslider figure img { width: 20%; float: left; }
+div#indexslider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite; 
+}
+div#saldetslider { overflow: hidden; }
+div#saldetslider figure img { width: 20%; float: left; }
+div#saldetslider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite; 
+}
+      </style>
+            <script src="ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+          <script>
+        $(document).on("mobileinit", function() {
+          $.mobile.autoInitializePage = false;
+          $.mobile.hashListeningEnabled = false;
+                  });
+        function mobileInitPage() {
+          $.mobile.hashListeningEnabled = true;
+          $.mobile.initializePage();
+        }
+      </script>
+        <script src="code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+          <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry"></script>
+          <script src="code.highcharts.com/highcharts.js"></script>
+                      <!-- Uncomment the following to include cordova in your app project -->
+        <!-- <script src="//163.23.249.123/platforms/android_or_ios/cordova.js"></script> -->
+                    <!-- GK Loader use RequireJS to load module -->
+      <script src="cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js"></script>
+      <!--Plug in GK-->
+      <script src="components/jquery.gk/jquery.gk.min.js"></script>
+      <!-- Load GK components -->
+      <script components="components/gk-ext/gmap.html,components/gk-ext/gk-position.html,components/gk-ext/json-listview.html,components/gk-jquerymobile/button.html,components/gk-ext/qrcode.html,components/gk-ext/image.html,components/gk-ext/barcode-scanner.html,components/gk-jquerymobile/header.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.min.js"></script>
+                  <!-- Export JS  -->
+      <script>
+        var rootURL = "http://www.myhito.com.tw/lib1";
+var imgpic = 'http://www.myhito.com.tw/upload/desimgs/';
+var improdimg = 'http://www.myhito.com.tw/upload/prodimg/';
+var twaddres = 'http://www.myhito.com.tw/lib1/counties';
+var spccontent = new Array();
+var saldata = new Array();
+var data = {}, lat, lng, searcid, porcl, ppri, prma, newres, memname, memphone, chart, chart2;
+var srcr1 = ['1月', '2月', '3月', '4月', '5月', '6月']
+var srcr2 = ['7月', '8月', '9月', '10月', '11月', '12月']
+presented = false;
+document.addEventListener('deviceready', function () {
+  StatusBar.overlaysWebView(false);
+  StatusBar.backgroundColorByName('#E91E63');
+}, false);
+
+function Fblogin() {
+  $.ajaxSetup({
+    cache: true
+  });
+  $.getScript('//connect.facebook.net/zh_TW/all.js', function () {
+    FB.init({
+      appId: '1811363415756992',
+      cookie: true,
+      version: 'v2.4',
+      xfbml: true, // parse social plugins on this page
+    });
+  });
+  //按下登入。這裏我就沒用原來的fb提供的登入。而是另外找圖並設定id為fblogin_bb
+  $("#fblogin_bb").click(function () {
+    FB.login(function (response) {
+      if (response.authResponse) {
+        FB.api('/me', function (response) {
+          alert('fbfb')
+          //這個CheckPlayer是我的自定義函數，你要改成你的。原則上就是去跟資料庫核對並建立。函數我就不提供了。反正也只是ajax
+          //var pdata = '{"id":"' + response.id + '","name":"' + response.name + '","email":"' + response.email + '"}';
+          // postfbsql(pdata);
+        });
+
+      } else {
+        alert('登入失敗!');
+      }
+    }, {
+      scope: 'email,user_birthday'
+    });
+  });
+  $("#btn-go").click(function () {
+    login_success(uid)
+  })
+}
+
+function postfbsql(pdata) {
+  $.ajax({
+    type: 'POST',
+    url: 'http://www.myhito.com.tw/lib1/fbi',
+    data: pdata,
+    dateType: 'html',
+
+    success: function () { //成功的話訊息
+      alert('6666')
+    }
+  });
+}
+
+function login_success(uid) {
+
+  var body = '測試一下測試一下測試一下測試一下';
+  FB.api('/me/feed', 'post', {
+    message: body
+  }, function (response) {
+    if (!response || response.error) {
+      alert('Error occured');
+    } else {
+      alert('Post ID: ' + response.id);
+    }
+  });
+  /*
+	FB.ui(
+	  {
+		method: 'feed',
+		name: 'Facebook Dialogs',
+		link: 'http://www.suncolor.com.tw',
+		picture: 'http://fbrell.com/f8.jpg',
+		caption: '測試一下',
+		description: '測試兩下測試兩下測試兩下'
+	  },
+	  function(response) {
+		if (response && response.post_id) {
+		  alert('Post was published.');
+		} else {
+		  alert('Post was not published.');
+		}
+	  }
+	); */
+}
+
+$(document).ready(function () {
+
+  $(document).on('click', '.logoutbtn', function () {
+    var r = confirm("確定登出?");
+    if (r == true) {
+      $.mobile.changePage('#logout');
+    }
+  })
+  $('#sentpassbtn').on('click', function (e) {
+    var moaffpass = $('#moaffpass').val();
+    var upassmo = $('#mopassword1').val();
+    var upass2 = $('#mopassword2').val();
+    if (moaffpass, upassmo == '') {
+      $('#myafftext').empty().append('請輸入舊密碼與新密碼');
+    } else if (upassmo != upass2) {
+      $('#myafftext').empty().append('兩次新密碼不吻合，請重新輸入！');
+    } else if (upassmo != '' && upassmo.length < 6) {
+      $('#myafftext').empty().append('密碼小於6碼(長度太短)，請重新輸入！');
+    } else if (moaffpass, upassmo != '') {
+      var passdata = '{"id":"' + localStorage.id + '","moaffpass":"' + moaffpass + '","upass":"' + upassmo + '"}';
+      postmypass(passdata)
+    }
+    e.preventDefault();
+  });
+  $('#sentbtn').on('click', function (e) {
+    $('#moiftwopass').empty();
+    reg = /^[^\s]+@[^\s]+\.[^\s]{2,3}$/;
+    var uname = $('#uname').val();
+    var email = $('#email').val();
+    var phone = $('#phone').val();
+    var fbname = $('#fbname').val();
+    if (uname == '' || email == '') {
+      $('#moiftwopass').empty().append('請確認姓名、電話是否有填');
+    } else if (phone.length != 10) {
+      $('#moiftwopass').empty().append('請確電話長度是否正確');
+    } else if (reg.test(email)) {
+      var pdata = '{"id":"' + localStorage.id + '","email":"' + email + '","phone":"' + phone + '","fbname":"' + fbname + '","uname":"' + uname + '"}';
+      postModi(pdata);
+    } else {
+      $('#moiftwopass').empty().append('電子郵件請輸入正確格式 ex:1234@himmkl.com');
+    }
+    e.preventDefault();
+  });
+  $('#despassbtn').on('click', function (e) {
+    var despad1 = $('#modpas1').val(),
+      despad2 = $('#modpas2').val(),
+      desaffpass = $('#affdespass').val();
+    if (despad1, desaffpass == '') {
+      $('#desafftext').empty().append('請輸入舊密碼與新密碼');
+    } else if (despad1 != despad2) {
+      $('#desafftext').empty().append('兩次新密碼不吻合，請重新輸入！');
+    } else if (despad1 != '' && despad1.length < 6) {
+      $('#desafftext').empty().append('密碼小於6碼(長度太短)，請重新輸入！');
+    } else if (desaffpass, despad1 != '') {
+      var passdata = '{"id":"' + localStorage.id + '","desaffpass":"' + desaffpass + '","upass":"' + despad1 + '"}';
+      postdespass(passdata)
+    }
+    e.preventDefault();
+  })
+  $('#chsalpass').on('click', function (e) {
+    var supass1 = $('#salpass1').val(),
+      supass2 = $('#salpass2').val(),
+      salaffpass = $('#salaffpass').val();
+    if (salaffpass, supass1 == '') {
+      $('#salchan').empty().append('請輸入舊密碼與新密碼');
+    } else if (supass1 != supass2) {
+      $('#salchan').empty().append('兩次新密碼不同，請重新輸入！');
+    } else if (supass1 != '' && supass1.length < 6) {
+      $('#salchan').empty().append('密碼小於6碼(長度太短)，請重新輸入！');
+    } else if (salaffpass, supass1 != '') {
+      var pdata = '{"salonid":"' + localStorage.id + '","password":"' + supass1 + '","salaffpass":"' + salaffpass + '"}';
+      postslpa(pdata);
+    }
+    e.preventDefault();
+  });
+
+  $(document).on('change', '#gk-desskill', function () {
+    var inptxt = $('#moskill').val();
+    var seltxt = $('#gk-desskill option:selected').val();
+    inptxt += ' ' + seltxt + ' ';
+    $('#moskill').val(inptxt);
+  });
+});
+
+function reslider() {
+  var indeximg = '';
+  $.ajax({
+    type: 'GET',
+    url: rootURL + '/advertin',
+    success: function (data) {
+      var result = $.parseJSON(data);
+      indeximg += '<figure>';
+      $.each(result, function (val) {
+        indeximg += '<img  src="http://www.myhito.com.tw/upload/' + result[val].imgname + '">';
+      })
+      indeximg += '</figure>';
+      $('#indexslider').empty().append(indeximg);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function salreslider(slid) {
+  var sid = slid,
+    indeximg = '';
+  $.ajax({
+    type: 'GET',
+    url: rootURL + '/salimg/' + sid,
+    success: function (data) {
+      var result = $.parseJSON(data);
+      indeximg += '<figure>';
+      $.each(result, function (val) {
+        indeximg += '<img src="http://www.myhito.com.tw/upload/salimgs/' + result[val].sliimgname + '">'
+      })
+      indeximg += '</figure>';
+      $('#saldetslider').empty().append(indeximg);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function postLogin(pdata) {
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/memlogin',
+    data: pdata,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      var showMsg;
+      if (result.status != 1) {
+        showMsg = '帳密輸入錯誤';
+        $('#longin').empty().append(showMsg);
+      } else {
+        localStorage.clear();
+        localStorage.id = result.id;
+        localStorage.role = result.role;
+        switch (localStorage.role) {
+        case '1':
+          $.mobile.changePage('#admin');
+          break;
+        case '2':
+          $.mobile.changePage('#salonmin');
+          break;
+        case '3':
+          $.mobile.changePage('#desinfo');
+          break;
+        default:
+          $.mobile.changePage('#myinfo');
+          break;
+        }
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function postfgpass(pdata) {
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/repoep',
+    data: pdata,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      var showMsg;
+      if (result.status != 1) {
+        $('#fgp').empty().append('帳密或電話輸入錯誤');
+      } else {
+        alert('您的密碼核對正確後寄送給您')
+        $.mobile.changePage('#login');
+      }
+
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function logintime() {
+  var id = localStorage.id,
+    ordate = new Date(),
+    todate = ordate.getFullYear() + '-' + (ordate.getMonth() + 1) + '-' + ordate.getDate(),
+    sta;
+  $.ajax({
+    type: 'GET',
+    url: rootURL + '/memrespus/' + id + '/' + todate,
+    success: function (msg) {
+      var result = $.parseJSON(msg)[0];
+      if (msg == '[]') {
+        $('#logtime').empty().append('您目前沒有預約');
+      } else {
+        $('#logtime').empty().append("您在   " + result.resdate + '   ' + result.restime + '   有預約');
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+  $.ajax({
+    type: 'GET',
+    url: rootURL + '/memshop/' + id,
+    success: function (data) {
+      var result = $.parseJSON(data);
+      $.each(result, function (key, val) {
+        if (val.pickup == 0) {
+          // alert('您有商品未取貨');
+          //return false;
+        }
+      });
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function postRegi(pdata) {
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/memregi',
+    data: pdata,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      localStorage.clear();
+      if (result.status1 == 0) {
+        $('#regform').hide();
+        $('#resut1').show();
+      } else {
+        var user = result.id;
+        var pass = result.role;
+        localStorage.id = result.id;
+        localStorage.role = result.role;
+        $('#resut1').empty().append('user:' + user + ', pass:' + pass);
+        alert('註冊完成')
+        $.mobile.changePage('#modinfo');
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function postReser(rdata) {
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/desconf',
+    data: rdata,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      var postshowMsg;
+      if (result.status == 1) {
+        localStorage.removeItem("resdate");
+        localStorage.removeItem("restime");
+        localStorage.removeItem("resdesid");
+        localStorage.removeItem("seldes");
+        $.mobile.changePage('#resinfo');
+      } else {
+        postshowMsg = '您在此時段已經有預約了';
+        $('#pore').empty().append(postshowMsg);
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function escresid(reid, mid) {
+  var r = confirm("確定取消預約嗎");
+  if (r == true) {
+    var rdata = '{"resid":"' + reid + '"}';
+    $.ajax({
+      type: 'POST',
+      url: rootURL + '/escres',
+      data: rdata,
+      success: function (msg) {},
+      complete: function () {
+        showresinfo(mid);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  } else {}
+}
+
+function postModi(pdata) {
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/modmem',
+    data: pdata,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      $.mobile.changePage('#myinfo');
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function postmypass(passdata) {
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/modpasch',
+    data: passdata,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      var rt = $.parseJSON(passdata);
+      if (result.status != 1) {
+        $('#myafftext').empty().append('舊密碼錯誤，請重新輸入！');
+      } else {
+        $.mobile.changePage('#myinfo');
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function postdespass(passdata) {
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/moddespasch',
+    data: passdata,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      var rt = $.parseJSON(passdata);
+      if (result.status != 1) {
+        $('#desafftext').empty().append('舊密碼錯誤，請重新輸入！');
+      } else {
+        $.mobile.changePage('#desinfo');
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+$.fn.serializeObject = function () {
+  var o = {};
+  var a = this.serializeArray();
+  $.each(a, function () {
+    if (o[this.name] !== undefined) {
+      if (!o[this.name].push) {
+        o[this.name] = [o[this.name]];
+      }
+      o[this.name].push(this.value || '');
+    } else {
+      o[this.name] = this.value || '';
+    }
+  });
+  return o;
+};
+
+function postrModi() {
+
+  var json = JSON.stringify($('#desmodres').serializeObject());
+
+  $.ajax({
+    type: $('form#desmodres').attr('method'),
+    url: rootURL + '/moddes',
+    data: json,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function postsalmod() {
+  var json = JSON.stringify($('#salonmodform').serializeObject());
+  var dd = '{"salname":"' + $('#salnamemod').val() + '","saladd":"' + $('#saladdmod').val() + '","postcode":"' + $('#postcodemod').val() + '","salphone":"' + $('#salphonemod').val() + '","salslogan":"' + $('#salsloganmod').val() + '","worktime":"' + $('#worktimemod').val() + '"}';
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/updsalon/' + localStorage.id,
+    data: json,
+    success: function (msg) {},
+    complete: function () {}
+
+  });
+}
+
+function upe1() {
+  $.ajax({
+    type: 'GET',
+    url: 'http://www.myhito.com.tw/lib1/salon/' + localStorage.id + '/1',
+    success: function (data) {
+      var result = $.parseJSON(data)[0],
+        data = result.desname,
+        b = '';
+      if (data != null) {
+        $.each(data, function (ele) {
+          img1 = data[ele].pic;
+          if (img1 == "") {
+            img1 = 'default.jpg'
+          }
+          b += '<li class="ui-li-has-thumb full-upt"  ><a data-desupid="' + data[ele].id + '" data-rel="popup" data-transition="slideup" href="#dify" class="ui-btn waves-effect waves-button waves-effect waves-button salupdbtb"> <img src="' + imgpic + img1 + '" class="ui-thumbnail ui-thumbnail-circular updimg"><h2 class="updh2">' + data[ele].desname + '</h2></a></li>';
+        });
+        $('#saldesup').empty().append(b)
+      }
+    }
+  });
+}
+
+function upe0() {
+  $.ajax({
+    type: 'GET',
+    url: 'http://www.myhito.com.tw/lib1/salon/' + localStorage.id + '/0',
+    success: function (data) {
+      var result = $.parseJSON(data)[0],
+        data = result.desname,
+        b = '';
+      if (data != null) {
+        $.each(data, function (ele) {
+          img1 = data[ele].pic;
+          if (img1 == '') {
+            img1 = 'default.jpg'
+          }
+          b += '<li class="ui-li-has-thumb full-upt"  ><a data-desupid="' + data[ele].id + '" data-rel="popup" data-transition="slideup" href="#dify" class="ui-btn waves-effect waves-button waves-effect waves-button salupdbtb"> <img src="' + imgpic + img1 + '" class="ui-thumbnail ui-thumbnail-circular updimg"><h2 class="updh2">' + data[ele].desname + '</h2></a></li>';
+        });
+        $('#saldesout').empty().append(b)
+      }
+    }
+  });
+
+}
+
+function postdesupd(a) {
+  var dd = '{"did":"' + localStorage.desupid + '"}';
+  // aa = '<li class="ui-li-has-thumb full-upt"><a data-desupid="' + data + '" data-rel="popup" data-transition="slideup" href="#dify" class="ui-btn waves-effect waves-button waves-effect waves-button salupdbtb"> <img src="' + img + '" class="ui-thumbnail ui-thumbnail-circular updimg"><h2 class="updh2">' + n + '</h2></a></li>';
+  alert(a + '...' + localStorage.desupid)
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/updsalondesupdo/' + a,
+    data: dd,
+    success: function (msg) {
+      upe1()
+      upe0()
+    },
+    complete: function () {}
+  });
+
+}
+
+function postslpa(pdata) {
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/salonpassword',
+    data: pdata,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      if (result.status != 1) {
+        $('#salchan').empty().append('舊密碼錯誤，請重新輸入！');
+      } else {
+        $.mobile.changePage('#saladmin');
+      }
+    },
+  });
+}
+
+function postnewdes(e) {
+  var json = JSON.stringify($('#saldesform').serializeObject());
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/addsalondes',
+    data: json,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      if (result.status == 0) {
+        $('#newp').text('此帳號註冊過');
+        e.preventDefault()
+      } else {
+        $("#pPp").popup("close");
+        $('#saldesup').append('<li class="ui-li-has-thumb full-upt"><a data-desupid="' + result.id + '" data-rel="popup" data-transition="slideup" href="#dify" class="ui-btn waves-effect waves-button waves-effect waves-button salupdbtb"> <img src="' + imgpic + 'default.jpg" class="ui-thumbnail ui-thumbnail-circular updimg"><h2 class="updh2">' + result.desname + '</h2></a></li>')
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+
+  });
+}
+
+function getajax() {
+  var $ele = $('#gk-desele');
+  $.ajax({
+    type: 'GET',
+    url: twaddres,
+    success: function (data) {
+      var result = $.parseJSON(data),
+        toAppend = '';
+      toAppend = '<option value="0">縣市</option>';
+      $.each(result, function (i, o) {
+        toAppend += '<option value="' + o.id + '">' + o.counties + '</option>';
+        $ele.empty().append(toAppend);
+      });
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+  $('#gk-desele').on('change', function () {
+    var locations = $(this).val(),
+      name = '';
+    selepostcode(locations);
+    var code = '{"postid":"' + locations + '"}';
+    $.ajax({
+      type: 'POST',
+      url: rootURL + '/counties/' + locations,
+      data: code,
+      success: function (data) {
+        var result = $.parseJSON(data);
+        var showMsg = '',
+          sal = '',
+          desli = '';
+        $.each(result, function (val) {
+          sal += '<li  data-role="list-divider" >' + result[val].salname + '</li>';
+
+          $.each(result[val].desname, function (key, val) {
+            sal += '<li is="listview-li" id="contcity"><a  href="#desdet" class="desbtn"  data-desid="' + val.desid + '"><h3>' + val.desname + '</h3></a></li>';
+
+          });
+        });
+        $('#div-deslist').empty();
+        $('#gk-deslist').empty().append(sal);
+
+        $('#gk-deslist').listview('refresh');
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  });
+}
+
+function getcount() {
+  var $ele = $('#gk-domsel');
+  $.ajax({
+    type: 'GET',
+    url: twaddres,
+    success: function (data) {
+      var result = $.parseJSON(data),
+        toAppend = '';
+      toAppend = '<option value="">縣市</option>';
+      $.each(result, function (i, o) {
+        toAppend += '<option value="' + o.id + '">' + o.counties + '</option>';
+        $ele.empty().append(toAppend);
+      });
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+  $('#gk-domsel').on('change', function () {
+    var locations = $(this).val();
+    selepostcode(locations);
+    var code = '{"postid":"' + locations + '"}';
+    $.ajax({
+      type: 'POST',
+      url: rootURL + '/counties/' + locations,
+      data: code,
+      success: function (data) {
+        $('#sallist2').empty();
+        var result = $.parseJSON(data);
+        var showMsg;
+        $.each(result, function (key, val) {
+          $('#sallist2').append('<li id="contcity"><a href="#saldet" class="salbtn ui-btn ui-btn-icon-right ui-icon-carat-r" data-saldd="' + val.saladd + '" data-salid="' + val.id + '"><h2 id="twsalon">' + val.salname + '</h2><h4>' + val.saladd + '</h4><h4 >' + val.salphone + '</h4></a></li>');
+        });
+
+        $('#sallist2').listview().listview('refresh');
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  });
+}
+
+function selepostcode(tions) {
+  if (tions) {
+    var countid = tions,
+      url = rootURL + '/postcode',
+      $ele = $('#gk-domselo');
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (data) {
+        var result = $.parseJSON(data),
+          toAppendo = '';
+        toAppendo = '<option value="">鄉鎮市區</option>';
+        $.each(result, function (i, item) {
+          if (item.countiesid == countid) {
+            toAppendo += '<option value="' + item.postcode + '">' + item.tcity + '</option>';
+            $ele.empty().append(toAppendo);
+          }
+        });
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    })
+  }
+}
+
+function del_imgclick() {
+  var checked = new Array();
+  $("input[name='did[]']:checked").each(function () {
+    checked.push($(this).val());
+  });
+  $.ajax({
+    type: "POST",
+    url: "http://www.myhito.com.tw/module/phoho/upphoto.php",
+    data: {
+      ckbox: checked
+    },
+    success: function (datas) {
+      alert('刪除完成');
+      $.mobile.changePage('#desadimg');
+      $('#camera').removeClass('ui-disabled')
+      $('#fordes').removeClass('ui-disabled')
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function del_myimg() {
+  var checked = new Array();
+  $("input[name='myid[]']:checked").each(function () {
+    checked.push($(this).val());
+  });
+  $.ajax({
+    type: "POST",
+    url: "http://www.myhito.com.tw/module/phoho/upphoto2.php",
+    data: {
+      ckbox: checked
+    },
+    success: function (datas) {
+      alert('刪除完成');
+      $.mobile.changePage('#myadimg');
+      $('#mycamera').removeClass('ui-disabled')
+      $('#formyimg').removeClass('ui-disabled')
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function holiday(deeid, dd, dd2, dd3) {
+  var r = confirm("確定休假");
+  if (r == true) {
+    var datte = dd + '-' + dd2 + '-' + dd3;
+    var dateee = '{"mid":"' + deeid + '","upddate":"' + datte + '"}';
+    $.ajax({
+      type: 'POST',
+      url: rootURL + '/desofftime',
+      data: dateee,
+      success: function (msg) {},
+      complete: function () {
+        getdesires(deeid);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  } else {}
+}
+
+function noholiday(id, dd, dd2, dd3) {
+  var nodatte = dd + '-' + dd2 + '-' + dd3;
+  var nodate = '{"desid":"' + id + '","deldate":"' + nodatte + '"}';
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/delres',
+    data: nodate,
+    success: function (msg) {
+      alert('已取消休假');
+    },
+    complete: function () {
+      getdesires(id);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function demeres(num) {
+  var dar = '{"dataoption":"' + num + '","mid":"' + localStorage.id + '","adddata":"' + localStorage.cpdate + '","addtime":"' + localStorage.cptime + '"}';
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/desphometime',
+    data: dar,
+    success: function (msg) {},
+    complete: function () {
+      getdesires(localStorage.id);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function delpho(id, tm, dd, dd2, dd3) {
+  var datte = dd + '-' + dd2 + '-' + dd3;
+  var timee = tm + ':00:00';
+  var darrr = '{"desid":"' + id + '","deldate":"' + datte + '","deltime":"' + timee + '"}';
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/delphone',
+    data: darrr,
+    success: function (msg) {
+      alert('已取消');
+    },
+    complete: function () {
+      getdesires(id);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function desimg() {
+  var formData = new FormData($('form#fordes')[0]);
+  $.mobile.loading("show", {
+    text: "上傳中",
+    textVisible: true
+  });
+  $.ajax({
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: formData,
+    type: $('form#fordes').attr('method'),
+    url: 'http://www.myhito.com.tw/lib1/photo/' + localStorage.id,
+    success: function (response) {
+      alert('上傳完成');
+    },
+    complete: function () {
+      $.mobile.loading("hide", {});
+      var id = $('#desadid').val();
+      showdesimg(id);
+    }
+  });
+  return false;
+}
+
+function updesimg() {
+  var formData = new FormData($('form#desupformyimg')[0]);
+  $.ajax({
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: formData,
+    type: $('form#desupformyimg').attr('method'),
+    url: 'http://www.myhito.com.tw/lib1/upphotodestx/' + localStorage.upimgid,
+    success: function (response) {},
+    complete: function () {
+      $.mobile.loading("hide", {});
+      var id = $('#desadid').val();
+      showdesimg(id);
+    }
+  });
+  return false;
+}
+
+function desmyimg() {
+  var formData = new FormData($('form#fordesmy')[0]);
+  $.ajax({
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: formData,
+    type: $('form#fordesmy').attr('method'),
+    url: 'http://www.myhito.com.tw/lib1/photos/' + localStorage.id,
+    success: function (response) {
+      alert('上傳完成!請按下確認修改');
+    }
+  });
+  return false;
+}
+
+function myimg() {
+  var formData = new FormData($('form#formyimg')[0]);
+  $.mobile.loading("show", {
+    text: "上傳中",
+    textVisible: true
+  });
+  $.ajax({
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: formData,
+    type: $('form#formyimg').attr('method'),
+    url: 'http://www.myhito.com.tw/lib1/photomem/' + localStorage.id,
+    success: function (response) {
+
+    },
+    complete: function () {
+      $.mobile.loading("hide", {});
+      var id = $('#myhiid').val();
+      showmyadimg(id);
+    }
+  });
+  return false;
+}
+
+function upmyimg() {
+  var formData = new FormData($('form#upformyimg')[0]);
+  $.ajax({
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: formData,
+    type: $('form#upformyimg').attr('method'),
+    url: 'http://www.myhito.com.tw/lib1/upphotomemtx/' + localStorage.upimgid,
+    success: function (response) {
+
+    },
+    complete: function () {}
+  });
+  return false;
+}
+
+function getdesires(id) {
+  var desid = id,
+    ordate = new Date(),
+    todate = ordate.getFullYear() + '-' + (ordate.getMonth() + 1) + '-' + ordate.getDate(),
+    url1 = rootURL + '/desiresadmin/' + desid + '/' + todate,
+    $ele = $('#idesres'),
+    dd = '',
+    cc = '';
+  if (url1) {
+    $.ajax({
+      type: 'GET',
+      async: false,
+      cache: false,
+      contentType: false,
+      processData: false,
+      url: url1,
+      success: function (data) {
+        var result = $.parseJSON(data);
+        var data1 = '';
+        $.each(result, function (ele1) {
+          if (ele1 == 0) {
+            dd = new String(result[ele1].resdate);
+            aa = dd.split('-')[0];
+            aa2 = dd.split('-')[1];
+            aa3 = dd.split('-')[2];
+            data1 += '<div  data-role="collapsible" data-collapsed="false" class="resdata ui-nodisc-icon ui-alt-icon ui-listview ui-listview-inset ui-corner-all ui-shadow"><h3>' + result[ele1].resdate + '</h3><ul data-rol="listview" id="nobu' + ele1 + '"  class="reslist"><a   class="ui-btn buton" onclick="holiday(' + desid + ',' + aa + ',' + aa2 + ',' + aa3 + ')" >今日休</a><a class="ui-btn nobuton" onclick="noholiday(' + desid + ',' + aa + ',' + aa2 + ',' + aa3 + ')" >取消休假</a>';
+          } else {
+            dd = new String(result[ele1].resdate);
+            aa = dd.split('-')[0];
+            aa2 = dd.split('-')[1];
+            aa3 = dd.split('-')[2];
+            data1 += '<div data-role="collapsible" data-collapsed="false"class="resdata ui-nodisc-icon ui-alt-icon ui-listview ui-listview-inset ui-corner-all ui-shadow" ><h3>' + result[ele1].resdate + '</h3><ul data-rol="listview" id="nobu' + ele1 + '" class="reslist"><a id="dab' + ele1 + '" class="ui-btn  buton" onclick="holiday(' + desid + ',' + aa + ',' + aa2 + ',' + aa3 + ')" >今日休</a><a class="ui-btn nobuton" onclick="noholiday(' + desid + ',' + aa + ',' + aa2 + ',' + aa3 + ')" >取消休假</a>';
+          }
+          var resttime = result[ele1].restime;
+          $.each(resttime, function (ele2, val2) {
+            if (ele1 == 0) {
+              if (val2 == '休假&nbsp;&nbsp;&nbsp;&nbsp;') {
+                data1 += '<div><h3>放假去<h3></div>';
+                return false;
+              } else if (val2 == 0) {
+                data1 += '<li>在勤</li>';
+              } else if (val2 == '電話預約&nbsp;&nbsp;&nbsp;&nbsp;') {
+                cc = ele2.split(':')[0];
+                data1 += '<li><a  class=" clr-btn-pink delphoe" onclick="delpho(' + desid + ',' + cc + ',' + aa + ',' + aa2 + ',' + aa3 + ')">' + ele2 + '取消電約</a></li>';
+              } else {
+                data1 += '<li><a>' + val2 + '</li>'
+              }
+            } else {
+              if (val2 == '休假&nbsp;&nbsp;&nbsp;&nbsp;') {
+                data1 += '<div><h3>放假去<h3></div>';
+                return false;
+              } else if (val2 == 0) {
+                cc = ele2.split(':')[0];
+                data1 += '<li ><a class="destime" href="#popupMenu" data-rel="popup" data-transition="slideup" data-Cdesid="' + desid + '" data-Ctime="' + ele2 + '" data-Cdate="' + result[ele1].resdate + '"    >' + ele2 + '在勤</a></li>';
+              } else if (val2 == '電話預約&nbsp;&nbsp;&nbsp;&nbsp;') {
+                cc = ele2.split(':')[0];
+                data1 += '<li><a  class="clr-btn-pink delphoe "  onclick="delpho(' + desid + ',' + cc + ',' + aa + ',' + aa2 + ',' + aa3 + ')">' + ele2 + '取消電約</a></li>';
+              } else if (val2 == '進修&nbsp;&nbsp;&nbsp;&nbsp;') {
+                cc = ele2.split(':')[0];
+                data1 += '<li><a  class="clr-btn-cyan delphoe "  onclick="delpho(' + desid + ',' + cc + ',' + aa + ',' + aa2 + ',' + aa3 + ')">' + ele2 + '取消進修</a></li>';
+              } else {
+                data1 += '<li><a>' + val2 + '</li>'
+              }
+            }
+          });
+          data1 += '</ul></div>';
+        });
+        $ele.empty().append(data1);
+        $('.resdata').collapsible().collapsible('refresh');
+        $('.reslist').listview().listview('refresh');
+        $("li").remove(":contains('00:00:00')");
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  }
+}
+
+function showdesimg(id) {
+  var url1 = rootURL + '/desimg/' + id,
+    $ele = $("#showpic");
+  $('#desadid').val(localStorage.id);
+  if (url1) {
+    $.ajax({
+      type: 'GET',
+      url: url1,
+      success: function (data) {
+        var result = $.parseJSON(data),
+          gname = result.length,
+          ame = '';
+        for (var i = 0; i < gname; i = i + 1) {
+          ame += '<div class="nd2-card  full-msg" data-id="' + result[i].dimgid + '"><div class="card-media"><img class="myshowimg" src="' + imgpic + result[i].imgname + '" style="width:100%;height:400px" ></div><div class="card-supporting-text myshowtext">' + result[i].title + '</div></div<div class="card-action"><div class="row between-xs"><div class="col-xs-4"><div class="box"><a href="#desupimg" class="ui-btn ui-btn-inline ui-btn-fab desslowimg">修改</a></div></div><div class="col-xs-8 align-right"><div class="box"><a href="#" class="ui-btn ui-btn-inline">Action</a></div></div></div></div>';
+          if (i == 3) {
+            $('#camera').addClass('ui-disabled');
+            $('#fordes').addClass('ui-disabled');
+          } else {
+            $('#camera').removeClass('ui-disabled')
+            $('#fordes').removeClass('ui-disabled')
+          }
+        }
+        $ele.empty().append(ame);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  }
+}
+
+function showmyadimg(id) {
+  var url1 = rootURL + '/memimgs/' + id,
+    $ele = $("#showmypic");
+  $('#myhiid').val(localStorage.id);
+  if (url1) {
+    $.ajax({
+      type: 'GET',
+      url: url1,
+      success: function (data) {
+        var result = $.parseJSON(data),
+          gname = result.length,
+          ame = '';
+        for (var i = 0; i < gname; i = i + 1) {
+          ame += '<div class="nd2-card full-msg" data-id="' + result[i].id + '"><div class="card-media"><img class="myshowimg" style="width:100%;height:300px"  src="' + result[i].img + '"></div><div  class="card-supporting-text myshowtext" style="font-family:標楷體;">' + result[i].myimgtext + '</div><div class="card-action"><div class="row between-xs"><div class="col-xs-4"><div class="box"><a href="#upimginput" class="ui-btn ui-btn-inline ui-btn-fab slowimg">編輯</a></div></div><div class="col-xs-8 align-right"><div class="box"><a href="#" class="ui-btn ui-btn-inline">分享</a></div></div></div></div></div>';
+          if (i == 2) {
+            $('#mycamera').addClass('ui-disabled')
+            $('#formyimg').addClass('ui-disabled')
+          } else {
+            $('#mycamera').removeClass('ui-disabled')
+            $('#formyimg').removeClass('ui-disabled')
+          }
+        }
+        $ele.empty().append(ame);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  }
+}
+
+function showresinfo(mid) {
+  var url1 = rootURL + '/memres/' + mid,
+    name = '',
+    $ele = $('#mresinfo');
+  if (url1) {
+    $.ajax({
+      type: 'GET',
+      url: url1,
+      success: function (data) {
+        var result = $.parseJSON(data);
+        $ele.empty();
+        for (var j = 0; j < result.length; j++) {
+          var che = result[j].item;
+          var myarray = new Array();
+          if (che[0] == 1) {
+            myarray.splice(0, 0, '剪髮');
+          }
+          if (che[1] == 1) {
+            myarray.splice(1, 0, '燙髮');
+          }
+          if (che[2] == 1) {
+            myarray.splice(2, 0, '染髮');
+          }
+          if (che[3] == 1) {
+            myarray.splice(3, 0, '護髮');
+          }
+          if (che[4] == 1) {
+            myarray.splice(4, 0, '');
+          }
+          if (result[j].np == 0) {
+            name = result[j].desname;
+          } else {
+            name = result[j].desnick;
+          }
+          $ele.append('<div class="list-block media-list"><ul><p class="can">' + result[j].resdate + '  ' + result[j].restime + '</p><li><a  href="tel:' + result[j].salphone + '"  class="item-link item-content ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-local-phone"></i>' + result[j].salphone + '</a></li><li><a id="resalid" href="#saldet" data-salid="' + result[j].salid + '" class="item-link item-content ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-send zmd-fw"></i>' + result[j].salname + '</a></li><li><a id="resdesid" href="#desdet" data-desid="' + result[j].desid + '" class="item-link item-content ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account-box"></i>' + name + '</a></li><li><div class="item-content"><div class="item-inner"><div class="item-title-row"><div class="item-title">' + result[j].saladd + '</div></div><div class="item-subtitle">' + myarray + '<br>' + result[j].other + '</div></div></div></li><li></ul></div><a class="ui-btn clr-btn-pink resinbtn waves-effect waves-button waves-effect waves-button" onclick="escresid(' + result[j].resid + ',' + mid + ')" >取消預約</a><hr>');
+          // $ele.append('<h3>沙龍名稱：</h3><a id="resalid" href="#saldet" data-salid="' + result[j].salid + '">' + result[j].salname + '</a><h3>沙龍地址：</h3>' + result[j].saladd + '<h3>沙龍電話：</h3>' + result[j].salphone + '<h3>設計師：</h3><a id="resdesid" href="#desdet" data-desid="' + result[j].desid + '">' + name + '</a><h3 >預約時間：</h3><p id="intiem">' + result[j].resdate + ' ' + result[j].restime + '</P><h3>預約項目：</h3><P>' + myarray + '<br>' + result[j].other + '</P><a class="ui-btn resinbtn" onclick="escresid(' + result[j].resid + ',' + mid + ')" >取消預約</a><hr>');
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  }
+}
+
+function desskill() {
+  var sk = '';
+  $.ajax({
+    type: 'GET',
+    url: rootURL + '/skill',
+    success: function (si) {
+      var result = $.parseJSON(si);
+      sk += '<option value="" selected></option>';
+      $.each(result, function (vla) {
+        sk += '<option value="' + result[vla].name + '">' + result[vla].name + '</option>';
+      });
+      $('#gk-desskill').empty().append(sk);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function Distance(l1, l2, sl1, sl2) {
+  var p1 = new google.maps.LatLng(l1, l2);
+  var p2 = new google.maps.LatLng(sl1, sl2);
+  return calcDistance(p1, p2)
+  //calculates distance between two points in km's
+  function calcDistance(p1, p2) {
+    return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(1);
+  }
+}
+
+function myhitoshop(mid) {
+  var url1 = rootURL + '/memshop/' + mid,
+    urlqr = rootURL + '/qr/' + mid,
+    $ele = $('#memshop'),
+    sta;
+  $.ajax({
+    type: 'GET',
+    url: url1,
+    success: function (data) {
+      var result = $.parseJSON(data);
+      var cont = '<ul data-role="listview" id="shoplistv">';
+      $.each(result, function (key, val) {
+        if (val.class == 1) {
+          (val.pickup == 0) ? sta = '<h4 id="shien"  class="red ui-btn-right">未取貨</h4>' : sta = '<h4 id="shien" class="blue ui-btn-right">已取貨</h4>';
+          cont += '<li><a href="#myshopdet" id="shopid" data-shid="' + val.slid + '" data-transition="slideup">' + val.prodname + '&nbsp;&nbsp;<h4 class="red">購買數:' + val.amount + '&nbsp;&nbsp;購買日：' + val.date + '</h4>' + sta + '</a></li>';
+        }
+        if (val.pcs == 2) {
+          cont += '<li><a href="#qrmain" class="qrbtn" data-qrid="' + val.rvid + '" data-qrmid="' + mid + '" data-qr=" ' + val.qrs + ' " data-transition="slideup">' + val.prodname + '&nbsp;&nbsp;購買量：' + val.slamount + '&nbsp;&nbsp;使用次數' + val.used + '</a></li>';
+        }
+      });
+      cont += '</ul>';
+      $ele.empty().append(cont);
+      $('#shoplistv').listview().listview('refresh');
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+}
+
+function getpod(year, season) {
+  var dte, aa, ary = [];
+  // chart = $("#container").highcharts();
+  $.ajax({
+    type: 'GET',
+    url: 'http://www.myhito.com.tw/lib1/phonereportform/' + year + '/' + season,
+    success: function (data) {
+      var result = $.parseJSON(data);
+      //    chart.series.remove(true);
+      $.each(result, function (ele) {
+        dte = result[ele].prodname;
+        $.each(result[ele].summ, function (ele2, val) {
+          if (val.sum == null) {
+            val.sum = 0
+          } else {
+            val.sum = Number(val.sum)
+          }
+          ary[ele2] = val.sum
+        });
+
+        chart.addSeries({
+          "name": dte,
+          "data": ary
+        })
+        if (season == 1) {
+          chart.xAxis[0].setCategories(srcr1);
+        } else {
+          chart.xAxis[0].setCategories(srcr2);
+        }
+      });
+    },
+    complete: function () {}
+  });
+}
+
+function getpod2(year, season) {
+  var dte, aa, ary = [];
+  //  chart = $("#container2").highcharts();
+  $.ajax({
+    type: 'GET',
+    url: 'http://www.myhito.com.tw/lib1/phoneresreportform/' + year + '/' + season,
+    success: function (data) {
+      var result = $.parseJSON(data);
+      if (data == '[]') {
+        alert('目前無資料，請重新選擇年份')
+      } else {
+        $.each(result, function (ele) {
+          dte = result[ele].prodname;
+          $.each(result[ele].count, function (ele2, val) {
+            ary[ele2] = Number(val.count)
+          });
+          chart2.addSeries({
+            "name": dte,
+            "data": ary
+          })
+          if (season == 1) {
+            chart2.xAxis[0].setCategories(srcr1);
+          } else {
+            chart2.xAxis[0].setCategories(srcr2);
+          }
+        });
+      }
+    },
+    complete: function () {
+
+    }
+  });
+}
+$(document).on('pageinit', function () {
+  if (localStorage.role != '' && localStorage.role == '4') {
+    $('a[href=#login]').attr('href', '#myinfo');
+  } else {
+    $('a[href=#myinfo]').attr('href', '#login');
+  }
+});
+$(document).on('pageshow', function () {
+  if (localStorage.role != '' && localStorage.role == '4') {
+    $('a[href=#login]').attr('href', '#myinfo');
+  } else {
+    $('a[href=#myinfo]').attr('href', '#login');
+  }
+
+});
+$(document).on('pageinit', '#index', function () {
+  var indexspc = $('#indexspc'),
+    spcurl = rootURL + '/spcolumn',
+    spcres = '';
+  if (spcurl) {
+    var i = 0;
+    $.getJSON(spcurl).complete(function (data) {
+      spccontent = $.parseJSON(data.responseText);
+      $.each(spccontent, function (key, spcval) {
+        if (i < 5) {
+          spcres += '<div class="nd2-card"><div class="card-title has-supporting-text"><h5  style="color:rgb(77,33,77);"  class=" purple card-subtitle">' + spcval.title + '</h5></div><div class="card-supporting-text has-action has-title">' + spcval.abstract + '</div><div class="card-action"><a href="#coldet"   data-colid="' + key + '" class="ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button colbtn">閱讀更多</a></div></div>';
+        }
+        i = i + 1;
+      });
+      indexspc.empty().append(spcres);
+      $('.resspc').collapsible().collapsible('refresh');
+    });
+  }
+});
+
+function deltqr() {
+  var json = JSON.stringify($('#saladform').serializeObject());
+  $.ajax({
+    type: $('form#saladform').attr('method'),
+    url: rootURL + '/deltqr',
+    data: json,
+    cache: false,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      if (result.status != 1) {
+        $('#salchak').text('無此序號或已被使用');
+      } else {
+        $('#salchak').text('使用成功請返回頁面');
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+  return false;
+}
+$(document).on('pageshow', '#index', function () {
+  reslider();
+  $(document).on('click', 'a.colbtn', function () {
+    var colid = $(this).data('colid');
+    localStorage.removeItem("colid");
+    localStorage.colid = colid;
+  });
+});
+
+$(document).on('pagebeforeshow', '#coldet', function () {
+  var cid = localStorage.colid,
+    contt = spccontent[cid];
+  $('#colcont').empty().append('<h4>' + contt.title + '</h4><h6 >' + contt.ondate + '</h6>' + contt.content);
+});
+
+$(document).on('pagebeforeshow', '#salon1', function () {
+  var posit = '{"lat":"' + lat + '","lng":"' + lng + '"}';
+  $('#sallist').empty();
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/salon',
+    data: posit,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      var showMsg, add = '';
+      $.each(result, function (key, val) {
+        if (Distance(lat, lng, val.sallat, val.sallng) <= 30) {
+          $('#sallist').append('<li id="contcity"><a href="#saldet" data-transition="slide" class="salbtn ui-btn ui-btn-icon-right ui-icon-carat-r" data-saldd="' + val.saladd + '" data-salid="' + val.id + '"><h3 class="purple">' + val.salname + '</h3><p>' + val.saladd + '</p><h4>' + val.salphone + '</h4><span class="ui-li-count ui-body-b">' + Distance(lat, lng, val.sallat, val.sallng) + 'km</span></a></li>');
+        }
+      });
+      $('#sallist').listview().listview('refresh');
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+});
+$(document).on('pageshow', '#salon1', function () {
+  $(document).on('click', '#sallist a.salbtn', function () {
+    var salid = $(this).data('salid');
+    localStorage.removeItem("salid");
+    localStorage.salid = salid;
+    var saldd = $(this).data('saldd');
+    localStorage.removeItem("saldd");
+    localStorage.saldd = saldd;
+  });
+});
+$(document).on('pagebeforeshow', '#salon2', function () {
+  $('#gk-domselo').on('change', function () {
+    var filter = $('#gk-domselo option:selected').val();
+    var code = '{"postcode":"' + filter + '"}';
+    $.ajax({
+      type: 'POST',
+      url: rootURL + '/postcode/' + filter,
+      deta: code,
+      success: function (data) {
+        $('#sallist2').empty();
+        var result = $.parseJSON(data);
+        var showMsg;
+        $.each(result, function (key, val) {
+          $('#sallist2').empty().append('<li id="contcity"><a href="#saldet" data-transition="slide" class="salbtn ui-btn ui-btn-icon-right ui-icon-carat-r" data-saldd="' + val.saladd + '" data-salid="' + val.id + '"><h3 class="purple ">' + val.salname + '</h3><h5 class="con">' + val.postcode + '<h5/><h4>' + val.saladd + '</h4><h4 >' + val.salphone + '</h4></a></li>');
+        });
+        $('#sallist2').listview().listview('refresh');
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  });
+});
+$(document).on('pagebeforeshow', '#salon2', function () {
+  getcount();
+});
+$(document).on('pageshow', '#salon2', function () {
+  $(document).on('click', '#sallist2 a.salbtn', function () {
+    var salid = $(this).data('salid');
+    localStorage.removeItem("salid");
+    localStorage.salid = salid;
+    var saldd = $(this).data('saldd');
+    localStorage.removeItem("saldd");
+    localStorage.saldd = saldd;
+  });
+});
+$(document).on('pagebeforeshow', '#saldet', function () {
+  if (localStorage.salid) {
+    var salid = localStorage.salid,
+      saldd = localStorage.saldd,
+      url1 = rootURL + '/salon/' + salid + '/1',
+      $ele = $("#saldetail"),
+      name = '';
+    $('#salmap').gk('address', saldd);
+    if (url1) {
+      $.ajax({
+        type: 'GET',
+        url: url1,
+        success: function (data) {
+          var result = $.parseJSON(data)[0],
+            desnum = result.desname.length,
+            designer = '';
+          slmap = '';
+          designer += '<ul data-role="listview"  class="ui-listview">';
+          for (var i = 0; i < desnum; i = i + 1) {
+            if (result.desname[i].pic == '') {
+              picsrc = 'default.jpg';
+            } else {
+              picsrc = result.desname[i].pic;
+            }
+            if (result.desnick[i].np == 0) {
+              name = result.desname[i].desname;
+            } else {
+              name = result.desnick[i].desnick;
+            }
+            designer += '<li class="ui-li-has-thumb"><a id="bkdes" href="#desdet" data-desid="' + result.desname[i].id + '"class="ui-btn ui-btn-icon-right ui-icon-carat-r"><img src="' + imgpic + picsrc + '" class="ui-thumbnail ui-thumbnail-circular"><h2>' + name + '</h2></a></li>';
+          }
+          designer += '</ul>'
+          $ele.empty().append('<div class="list-block media-list"><ul><li><div class="item-content"><div class="item-inner"><div class="item-title-row"><div class="item-title">' + result.salname + '</div></div><div class="item-subtitle">' + result.saladd + '</div></div></div></li><li><div class="item-content"><div class="item-inner"><div class="item-title-row"><div class="item-title">營業時間</div></div><div class="item-subtitle">' + result.worktime + '</div></div></div></li><li><a  href="tel:' + result.salphone + '" class="item-link item-content ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-local-phone"></i>' + result.salphone + '</a></li></ul></div>' + designer);
+          $('#vougoin').attr('href', 'http://maps.apple.com/?daddr=' + result.sallat + ',' + result.sallng + '&q=' + result.saladd)
+        },
+        error: function (jqXHR, textStatus, errorThrown) {}
+      });
+    }
+  } else {
+    alert('no data');
+  }
+});
+$(document).on('pageshow', '#saldet', function () {
+  salreslider(localStorage.salid);
+  var saldd = localStorage.saldd;
+  $('#salmap').gk('addMarker', saldd);
+  $(document).on('click', '#bkdes', function () {
+    var desid = $(this).data('desid');
+    localStorage.removeItem("desid");
+    localStorage.desid = desid;
+  });
+});
+$(document).on('pagehide', '#saldet', function () {
+  var saldd = localStorage.saldd;
+  $('#salmap').gk('removeMarker', saldd);
+});
+
+$(document).on('pagebeforeshow', '#designer', function () {
+
+  var posit = '{"lat":"' + lat + '","lng":"' + lng + '"}',
+    name = '',
+    sal = '';
+  $('#gk-deslist').empty();
+  der = '';
+  $.ajax({
+    type: 'POST',
+    url: rootURL + '/dessss',
+    data: posit,
+    success: function (msg) {
+      var result = $.parseJSON(msg);
+      var showMsg;
+
+      $.each(result, function (val) {
+        sal += '<li  data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">' + result[val].salname + '</li>';
+        $.each(result[val].desname, function (key, val) {
+          sal += '<li is="listview-li" id="contcity"><a  href="#desdet" class="desbtn"  data-desid="' + val.desid + '"><h3>' + val.desname + '</h3></a></li>';
+        });
+      });
+      $('#gk-deslist').empty().append(sal);
+      $('#gk-deslist').listview().listview('refresh');
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+});
+$(document).on('pageshow', '#designer', function () {
+  getajax();
+  $(document).on('click', '#gk-deslist li a', function () {
+    var desid = $(this).data('desid');
+    localStorage.removeItem("desid");
+    localStorage.desid = desid;
+  });
+  $(document).on('click', '.desbtn', function () {
+    var desid = $(this).data('desid');
+    localStorage.removeItem("desid");
+    localStorage.desid = desid;
+  });
+});
+
+$(document).on('pagebeforeshow', '#desdet', function () {
+  var abo;
+  // abo = '<a href="#desres"  class="ui-btn ui-btn-inline ui-mini" style="background-color:#fbe251;color:#444;font-size:1.2rem;" id="chkmid" >預約去</a>';
+  /* if (localStorage.id && localStorage.role == 4) {
+    var id = localStorage.id,
+      url1 = rootURL + '/member/' + id;
+    if (url1) {
+      $.ajax({
+        type: 'GET',
+        url: url1,
+        success: function (data) {
+          var result = $.parseJSON(data)[0];
+          localStorag.memname = result.name;
+          localStorag.memphone = result.phone;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {}
+      });
+    }
+  }*/
+  if (localStorage.desid) {
+    var desid = localStorage.desid,
+      url1 = rootURL + '/designer/' + desid,
+      works = '',
+      $ele = $("#desdetail");
+    $.ajax({
+      type: 'GET',
+      url: rootURL + '/desworks/' + desid,
+      success: function (dataw) {
+        var resultw = $.parseJSON(dataw);
+        $.each(resultw, function (ele1, val1) {
+          works += '<img  class="workimg" src="' + val1.img + '" >';
+        });
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+    if (url1) {
+      $.ajax({
+        type: 'GET',
+        url: url1,
+        success: function (datadd) {
+          var resultdd = $.parseJSON(datadd)[0],
+            name, picsrc = '';
+          if (resultdd.pic == '') {
+            picsrc = 'default.jpg';
+          } else {
+            picsrc = resultdd.pic;
+          }
+          if (resultdd.np == 0) {
+            name = resultdd.desname;
+          } else {
+            name = resultdd.desnick
+          }
+          $ele.empty().append('<div class="ui-grid-a" style="height:100%"><div class="ui-block-a" style="height:100%"><img class="circle" style="width:90%;margin-top:10px;margin-left:5px;border-radius:30px;" src="' + imgpic + picsrc + '"></div><div class="ui-block-b" style="height:100%;text-align:center;" ><h2 class="purple" style="margin:0px;padding-top:40px;">' + name + '</h2><P>時段：' + resultdd.worktime + '</P><p><a style="color: rgba(255,255,255,0.85);background-color: #E91E63;padding-right:10px"  class="ui-btn ui-btn-raised  waves-effect waves-button waves-effect waves-button" id="chkmid"  href="#desres" >預約我</a></p></div></div><div class="list-block media-list"><ul><li><a  id="bksal" href="#saldet" data-salid="' + resultdd.salid + '" class="item-link item-content ui-btn waves-effect waves-button waves-effect waves-button"><div class="item-inner"><div class="item-title-row"><div class="item-title"><i class="zmdi zmdi-mail-send"></i>' + resultdd.salname + '</div></div></div></a></li><li><div class="item-content"><div class="item-inner"><div class="item-title-row"><div class="item-title">個人簡介</div></div><div class="item-subtitle">' + resultdd.intro + '</div></div></div></li><li><div class="item-content"><div class="item-inner"><div class="item-title-row"><div class="item-title purple">擅長風格</div></div><div class="item-subtitle">' + resultdd.skill + '</div></div></div></li><li><div class="item-content"><div class="item-inner"><div class="item-title-row"><div class="item-title">我的作品</div></div><div class="item-subtitle">' + works + '</div></div></div></li></ul></div>');
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {}
+      });
+    }
+  } else {}
+});
+$(document).on('pageshow', '#desdet', function () {
+  localStorage.removeItem("seldes");
+});
+$(document).on('pageinit', '#desdet', function () {
+  $(document).on('click', '#desdetail a#deim', function () {
+    var img = $(this).data('img');
+    localStorage.removeItem("img");
+    localStorage.img = img;
+  });
+  $(document).on('click', '#desdetail a#bksal', function () {
+    var salid = $(this).data('salid');
+    localStorage.removeItem("salid");
+    localStorage.salid = salid;
+  });
+  $(document).on('pagebeforeshow', '#desseeimg', function (e) {
+    var srcimg = localStorage.img;
+    $('#seeimg').empty().append('<img id="p" style="width:100%;height:100%" src="' + srcimg + '">');
+  });
+  $(document).on('click', '#chkmid', function (e) {
+    if (localStorage.id && localStorage.role == 4) {
+      $.mobile.changePage('#desres');
+    } else {
+      alert('預約功能僅提供會員使用，請先登入，謝謝！');
+      $.mobile.changePage('#login');
+    }
+    e.preventDefault();
+  });
+});
+
+$(document).on('pagebeforeshow', '#products', function () {
+  $('#prodtab').tabs("refresh");
+  $.ajax({
+    type: 'GET',
+    url: rootURL + '/products/1',
+    success: function (data) {
+      var resul = $.parseJSON(data),
+        sel = '';
+
+      $.each(resul, function (ele, val) {
+        sel += '<div class="nd2-card"><div class="card-media"><img style="width:100%;height:400px" src="' + improdimg + val.imgs[0].imgs + '"><div class="card-media-overlay with-background"><div class="card-title has-supporting-text"><h3 class="card-primary-title">$ ' + val.price + '</h3><h5 class="card-subtitle">' + val.prodname + '</h5></div><div class="card-action"><div class="row between-xs"><div class="col-xs-12"><div class="box"><a href="#prodet" data-pdid="' + val.id + '" data-pdcla="' + val.class + '"class=" prdbtn ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-send "></i></a></div></div></div></div></div></div></div>';
+      });
+      $('#fragment-1').empty().append(sel);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+  $.ajax({
+    type: 'GET',
+    url: rootURL + '/products/2',
+    success: function (data) {
+      var resul = $.parseJSON(data),
+        sel = '';
+      $.each(resul, function (ele, val) {
+        sel += '<div class="nd2-card"><div class="card-media"><img src="' + improdimg + val.imgs[0].imgs + '"><div class="card-media-overlay with-background"><div class="card-title has-supporting-text"><h3 class="card-primary-title">$ ' + val.price + '</h3><h5 class="card-subtitle">' + val.prodname + '</h5></div><div class="card-action"><div class="row between-xs"><div class="col-xs-12"><div class="box"><a href="#prodet" data-coid="' + val.id + '" data-cocla="' + val.class + '"class=" coubtn ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button">Action 1</a></div></div></div></div></div></div></div>';
+
+      });
+      $('#fragment-2').empty().append(sel);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+});
+$(document).on('pageinit', '#products', function () {
+  $(document).on('click', '.prdbtn', function () {
+    localStorage.removeItem("coid");
+    localStorage.removeItem("cocla");
+    var pdid = $(this).data('pdid');
+    localStorage.removeItem("pdid");
+    localStorage.pdid = pdid;
+    var pdcla = $(this).data('pdcla');
+    localStorage.removeItem("pdcla");
+    localStorage.pdcla = pdcla;
+  });
+  $(document).on('click', '.coubtn', function () {
+    localStorage.removeItem("pdid");
+    localStorage.removeItem("pdcla");
+    var coid = $(this).data('coid');
+    localStorage.removeItem("coid");
+    localStorage.coid = coid;
+    var cocla = $(this).data('cocla');
+    localStorage.removeItem("cocla");
+    localStorage.cocla = cocla;
+  });
+});
+$(document).on('pagebeforeshow', '#prodet', function () {
+  $('.prodch').show();
+  $('#prd').hide();
+  if (localStorage.pdcla) {
+    var pdid = localStorage.pdid,
+      img,
+      url1 = rootURL + '/products/1/' + pdid,
+      $ele = $("#proddetail");
+    $.ajax({
+      type: 'GET',
+      url: url1,
+      success: function (data) {
+        var result = $.parseJSON(data)[0];
+        if (result.img == '') {
+          img = improdimg + '/default2.png';
+        } else {
+          img = improdimg + result.img
+        }
+        var pi = result.price;
+        var nam = result.prodname;
+        $ele.empty().append('<div class="ui-grid-a" style="height:255px"><div class="ui-block-a" style="height:100%"><img class="deig" src="' + img + '"></div><div class="ui-block-b" style="height:100%"><div style="margin:15px;"><h4>' + result.prodserial + '</h4><h4>' + result.intro + '</h4><h4 style="color:#38813c;font-weight:bolder;">價格:$' + result.price + '</h4><h4>數量:' + result.amount + '</h4></div></div></div></div><h3>詳細:</h3><span>' + result.detail + '</span><a class="ui-btn ui-btn-raised clr-btn-accent-pink waves-effect waves-button waves-effect waves-button prodch" ">立即購買</a>');
+        ppri = result.price;
+        prma = result.prodname;
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  } else {
+    var coid = localStorage.coid,
+      img2,
+      url1 = rootURL + '/products/2/' + coid,
+      $ele = $("#proddetail");
+    $.ajax({
+      type: 'GET',
+      url: url1,
+      success: function (data) {
+        var result = $.parseJSON(data)[0];
+        if (result.img == '') {
+          img2 = improdimg + '/default1.png';
+        } else {
+          img2 = improdimg + result.img
+        }
+        $ele.empty().append('<div class="ui-grid-a" style="height:255px"><div class="ui-block-a" style="height:100%"><img class="deig" src="' + img2 + '"></div><div class="ui-block-b" style="height:100%"><div style="margin:15px;"><h4>' + result.prodserial + '</h4><h4>' + result.intro + '</h4><h4 style="color:#38813c;font-weight:bolder;">價格:$' + result.price + '</h4><h4>數量:' + result.amount + '</h4></div></div></div></div><h4 style="color:#ff0000;font-weight:bolder;">時間:' + result.regdate + '~' + result.putdate + '</h4><h3>詳細:</h3><span>' + result.detail + '</span><a  class="ui-btn ui-btn-raised clr-btn-accent-pink waves-effect waves-button waves-effect waves-button prodch" >立即購買</a>');
+        ppri = result.price;
+        prma = result.prodname;
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  }
+});
+
+function prodform() {
+  var params = $("#prd").serialize();
+  params = decodeURIComponent(params, true);
+  var bphone = $('#buymyphone').val();
+  if ($('#radio1').prop('checked') == false && $('#radio2').prop('checked') == false) {
+    $('#h5red').text('請選擇取貨方式');
+    return false;
+  } else if ($('#addint2').val() == '') {
+    $('#h5red').empty().append('請輸入到貨地址');
+    return false;
+  } else if ($('#addint1').val() == 0) {
+    $('#h5red').text('請選擇髮廊');
+    return false;
+  } else if (bphone == '' && bphone.length != 10) {
+    return false;
+    alert('請確認是否有填入電話');
+    $.mobile.changePage('#modinfo');
+  } else {
+    $.ajax({
+      type: 'POST',
+      url: 'http://www.myhito.com.tw/buyitemapp.php',
+      cache: false,
+      data: params,
+      success: function (data) {},
+      complete: function () {
+        $.mobile.changePage('#myshop', {
+          changeHash: false
+        });
+      }
+    });
+    if ($('#checkbox1').prop('checked') == true) {
+      alert('購買成功')
+      return false;
+    }
+
+  }
+
+}
+$(document).on('pageinit', '#prodet', function (e) {
+  var pdi, cla, secol, ckcol;
+  // var posit = '{"lat":"' + lat + '","lng":"' + lng + '"}';
+  $.ajax({
+    type: 'GET',
+    url: 'http://www.myhito.com.tw/lib1/salon',
+    success: function (data) {
+      var result = $.parseJSON(data);
+      secol += '<option value=""></option>';
+      $.each(result, function (key, val) {
+        secol += '<option value="' + val.salname + '">' + val.salname + '</option>';
+      });
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+  $(document).on('click', '.prodch', function (e) {
+
+    if (localStorage.id !== '' && localStorage.role == 4) {
+      if (localStorage.memname != '' && localStorage.mypho != '') {
+        $('.prodch').hide();
+        $('#prd').show();
+        if (localStorage.pdid) {
+          $('#prd').empty().append('<label for="bamount">購買數量</label><input type="number" name="bamount" id="bamount" value="1" min="1"><input type="hidden" name="memid" value="' + localStorage.id + '" ><input type="hidden" name="proid" value="' + localStorage.pdid + '"><input type="hidden" id="buymyphone" name="buymyphone" value="' + localStorage.mypho + '"><input type="hidden" name="pprice" value="' + ppri + '"><input type="hidden" name="prodname" value="' + prma + '"><input type="hidden" name="pclass" value="' + localStorage.pdcla + '"><label for="prose">取貨地點</label><fieldset data-role="controlgroup" data-type="horizontal" name="Smoker" id="Smoker"><input type="radio" name="shoppick" id="radio1" value="1" class="radio"><label for="radio1" class="inline">到店取貨</label><input type="radio" name="shoppick" id="radio2" value="2" class="radio"><label for="radio2" class="inline">物流寄件</label></fieldset><div class="ui-grid-a" style="height:65px" id="liet"></div><br><hr><h5 class="red" id="h5red"></h5><div class="ui-grid-a" style="height:55px"><div class="ui-block-a" style="height:100%"><input type="submit" value="確定購買"  id="confirmbuy"></div><div class="ui-block-b" style="height:100%"><a class="ui-btn" id="nopro" >取消</a></div></div>');
+        } else {
+          $('#prd').empty().append('<label for="bamount">購買數量</label><input type="number" name="bamount" id="bamount" value="1" min="1"><input type="hidden" name="memid" value="' + localStorage.id + '" ><input type="hidden" id="buymyphone" name="buymyphone" value="' + localStorage.mypho + '"><input type="hidden" name="proid" value="' + localStorage.coid + '"><input type="hidden" name="pprice" value="' + ppri + '"><input type="hidden" name="prodname" value="' + prma + '"><input type="hidden" name="pclass" value="' + localStorage.cocla + '"><div class="ui-grid-a" style="height:55px"><div class="ui-block-a" style="height:100%"><input type="submit" value="確定購買"  id="confirmbuy"></div><div class="ui-block-b" style="height:100%"><a class="ui-btn" id="nopro" >取消</a></div></div>');
+
+        }
+        $('#bamount').textinput().textinput('refresh');
+        $('[type="submit"]').button().button('refresh');
+        $('[type="radio"]').checkboxradio();
+      } else {
+        alert('您的個人資料填寫不完全，無法進行預約');
+        $.mobile.changePage('#modinfo');
+      }
+    } else {
+      alert('購買功能僅提供會員使用，請先登入，謝謝！');
+      $.mobile.changePage('#login');
+    }
+    e.preventDefault();
+  });
+  $(document).on('click', '#nopro', function (e) {
+    $('.prodch').show();
+    $('#prd').hide();
+    e.preventDefault();
+  });
+  $(document).on('change', "#Smoker", function (e) {
+    if ($("#Smoker :radio:checked").val() == 1) {
+      $('#liet').empty().append('<div class="ui-block-a" style="height:100%"><select name="addint1" id="addint1" >' + secol + '</select></div><div class="ui-block-b" style="height:100%"><input type="checkbox" name="cash" id="checkbox1" value="1" class="checkbox"><label for="checkbox1" class="inline">到店付款取貨</label></div>');
+    } else {
+      $('#liet').empty().append('<input type="text" name="addint2" id="addint2" title="請輸入到貨地址">');
+    }
+    $('#addint1').selectmenu().selectmenu('refresh');
+    $('#checkbox1').checkboxradio();
+    $('#addint2').textinput().textinput('refresh');
+  });
+});
+
+$(document).on('pageshow', '#login', function () {
+  Fblogin()
+  $('#btn-login').on('click', function (e) {
+    var uname = $('#username').val();
+    var upass = $('#password').val();
+    var pdata = '{"unsaemre":"' + uname + '","pwaosrsd":"' + upass + '"}';
+    postLogin(pdata);
+    e.preventDefault();
+  });
+  $('#btn-goregf').on('click', function (e) {
+    $.mobile.changePage('#register');
+  });
+});
+$(document).on('pagebeforeshow', '#login', function () {
+  $('#username').val('');
+  $('#password').val('');
+  $('#longin').empty();
+});
+$(document).on('pageshow', '#forgetpass', function () {
+  $('#btn-forget').on('click', function (e) {
+    var uname = $('#forname').val();
+    var upass = $('#forphone').val();
+    var pdata = '{"username":"' + uname + '","phone":"' + upass + '"}';
+    if (uname == '' || upass == '') {
+      $('#fgp').empty().append("請確認帳號、電話是否有填");
+    } else {
+      postfgpass(pdata);
+    }
+    e.preventDefault();
+  });
+});
+$(document).on('pagebeforeshow', '#forgetpass', function () {
+  $('#forname').val('');
+  $('#forphone').val('');
+  $('#fgp').empty();
+});
+$(document).on('pageinit', '#logout', function () {
+  localStorage.clear();
+});
+$(document).on('pageshow', '#logout', function () {
+  localStorage.clear();
+  $.mobile.changePage('#index');
+});
+
+$(document).on('pagebeforeshow', '#register', function () {
+  $('#regform').show();
+  $('#resut1').hide();
+  $('#regichan').empty();
+  $('#reguser').val('');
+  $('#regpass').val('');
+  $('#regpass2').val('');
+});
+$(document).on('pageshow', '#register', function () {
+  $('#btn-regi').on('click', function (e) {
+    var uname = $('#reguser').val();
+    var upass = $('#regpass').val();
+    var upass2 = $('#regpass2').val();
+    var pdata = '{"unsaemre":"' + uname + '","pwaosrsd":"' + upass + '"}';
+    if (upass.length < 6) {
+      $('#regichan').empty().append('密碼小於6碼(長度太短)，請重新輸入！');
+    } else if (upass != upass2) {
+      $('#regichan').empty().append('兩次密碼不同，請重新輸入！');
+    } else {
+      postRegi(pdata);
+    }
+    e.preventDefault();
+  });
+});
+$(document).on('pageinit', '#myinfo', function () {
+  $('#logoutbtn').on('click', function () {
+    var r = confirm("確定登出?");
+    if (r == true) {
+      $.mobile.changePage('#logout');
+    }
+  });
+});
+$(document).on('pagebeforeshow', '#myinfo', function () {
+  logintime();
+  if (localStorage.id) {
+    var id = localStorage.id,
+      url1 = rootURL + '/member/' + id,
+      $ele = $('#perinfo');
+    if (url1) {
+      $.ajax({
+        type: 'GET',
+        url: url1,
+        success: function (data) {
+          var result = $.parseJSON(data)[0];
+          localStorage.mypho = result.phone;
+          localStorage.memname = result.name;
+          if (result.name == '') {
+            $('#myhid').empty().append(result.email)
+          } else {
+            $('#myhid').empty().append(result.name)
+          }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {}
+      });
+    }
+  } else {}
+});
+
+$(document).on('pagebeforeshow', '#modinfo', function () {
+  if (localStorage.id) {
+    var id = localStorage.id,
+      url1 = rootURL + '/member/' + id,
+      $ele = $('#mpinfo');
+    if (url1) {
+      $.ajax({
+        type: 'GET',
+        url: url1,
+        success: function (data) {
+          var result = $.parseJSON(data)[0];
+          localStorage.mops = result.password;
+          if (result.name == '') {
+            $ele.empty().append('<h1 class="ui-btn-inline ui-mini red">*必填</h1>姓名</label><input type="text" name="uname" id="uname"><label for="phone"><h1 class="ui-btn-inline ui-mini red">*必填</h1>聯絡電話</label><input type="tel" name="phone" id="phone" value="' + result.phone + '"><label for="email"><h1 class="ui-btn-inline ui-mini red">*必填</h1>電子郵件</label><input type="email" name="email" id="email" value="' + result.email + '"><label for="fbname">FB帳號</label><input type="mail" name="fbname" id="fbname" value="' + result.fbname + '"></div>');
+          } else {
+            $ele.empty().append('<label for="uname">姓名</label><h4>' + result.name + '</h4><label for="phone">聯絡電話</label><input type="tel" name="phone" id="phone" value="' + result.phone + '"><label for="email">電子郵件</label><input type="email" name="email" id="email" value="' + result.email + '"><label for="fbname">FB帳號</label><input type="mail" name="fbname" id="fbname" value="' + result.fbname + '"></div>');
+          }
+          $("input").textinput().textinput("refresh");
+        },
+        error: function (jqXHR, textStatus, errorThrown) {}
+      });
+    }
+  } else {}
+});
+$(document).on('pagebeforeshow', '#mypass', function () {
+  $("input[type=password]").val('')
+  $('#myafftext').empty();
+});
+$(document).on('pagebeforeshow', '#desinfo', function () {
+  if (localStorage.id) {
+    var desid = localStorage.id,
+      url1 = rootURL + '/designer/' + desid,
+      works = '',
+      $ele = $("#desinfomain"),
+      sta;
+    $.ajax({
+      type: 'GET',
+      url: rootURL + '/desworks/' + desid,
+      success: function (dataw) {
+        var resultw = $.parseJSON(dataw);
+        $.each(resultw, function (ele1, val1) {
+          works += '<img  class="desing" src="' + val1.img + '" >';
+        });
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+    if (url1) {
+      $.ajax({
+        type: 'GET',
+        url: url1,
+        success: function (datadd) {
+          var resultdd = $.parseJSON(datadd)[0],
+            desmap = $('#desmap'),
+            picsrc = '',
+            newman = '';
+          if (resultdd.pic == '') {
+            picsrc = 'default.jpg';
+          } else {
+            picsrc = resultdd.pic;
+          }
+          if (resultdd.np == 0) {
+            name = resultdd.desname;
+          } else {
+            name = resultdd.desnick;
+          }
+          newres = resultdd.newres;
+          if (newres > 0) {
+            newman = '有新的' + resultdd.newres + '筆預約'
+          } else {
+            newman = '目前沒有預約'
+          }
+          $ele.empty().append('<div class="dpurple" id="desmainimg"><img  class="desimg" src="' + imgpic + picsrc + '" ><h4>' + name + '</h4></div><div class="list-block media-list" style="margin:auto"><ul><li><div class="item-content"><div class="item-inner"><div class="item-subtitle">' + newman + '</div></div></div></li><li><div class="item-content"><div class="item-inner"><div class="item-subtitle">' + resultdd.intro + '</div></div></div></li><li><div class="item-content"><div class="item-inner"><div class="item-title-row"><div class="item-subtitle">風格</div></div><div class="item-title">' + resultdd.skill + '</div></div></div></li><li><div class="item-content"><div class="item-inner"><div class="item-title-row"><div class="item-subtitle">上班時間</div></div><div class="item-title">' + resultdd.worktime + '</div></div></div></li><li><a  href="#despass" class="ui-btn clr-warning waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-send"></i>修改密碼</a></li></ul></div>');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {}
+      });
+    }
+  } else {}
+});
+
+
+$(document).on('pagebeforeshow', '#desires', function () {
+  if (localStorage.id) {
+    getdesires(localStorage.id);
+  } else {}
+
+});
+$(document).on('pageshow', '#desires', function () {
+  $(document).on('click', '.destime', function (e) {
+    cptime = $(this).data('ctime');
+    cpdate = $(this).data('cdate');
+    localStorage.removeItem("ctime");
+    localStorage.removeItem("cdate");
+    localStorage.cpdate = cpdate;
+    localStorage.cptime = cptime;
+
+  })
+  $('#data1').on('click', function (e) {
+    demeres('1')
+  })
+  $('#data2').on('click', function (e) {
+    demeres('2')
+  })
+
+  $("li").remove(":contains('00:00:00')");
+});
+
+$(document).on('pagebeforeshow', '#desadimg', function () {
+  if (localStorage.id) {
+    showdesimg(localStorage.id);
+  } else {}
+});
+$(document).on('pageinit', '#desadimg', function () {
+  $('#desimgfile').on('change', function (e) {
+    if ($(this).val() !== '') {
+      readURL(this);
+      $.mobile.changePage('#desimgput');
+    }
+    e.preventDefault();
+  })
+  $('#showpic').on('click', ".desslowimg", function (e) {
+
+    var fullMsg = $(this).closest('.full-msg'),
+      updateID = fullMsg.data('id'),
+      img = fullMsg.find('.myshowimg').attr('src'),
+      text = fullMsg.find('.myshowtext').text();
+    localStorage.removeItem("upimgid");
+    localStorage.upimgid = updateID;
+    localStorage.removeItem("upimg");
+    localStorage.upimg = img;
+    localStorage.removeItem("upimgtext");
+    localStorage.upimgtext = text;
+
+  });
+
+});
+$(document).on('pageinit', '#desupimg', function (e) {
+  $("#desupimgbtn").on('click', function (e) {
+    $('#desupformyimg').submit();
+  });
+});
+$(document).on('pagebeforeshow', '#desupimg', function (e) {
+  $('.upblah').attr('src', localStorage.upimg);
+  $('#updesimgtext').val(localStorage.upimgtext);
+
+});
+$(document).on('pageinit', '#desimgput', function () {
+  var file = $("#desimgfile"),
+    text1 = $("#desimgtext1"),
+    text2 = $("#desimgtext2");
+  $("#desimgbtn").on('click', function (e) {
+    $("#desimgtext1").val($("#desimgtext2").val())
+    alert($("#desimgtext1").val())
+    $('#fordes').submit();
+  });
+});
+$(document).on('pagebeforeshow', '#desimgput', function () {
+  $('#desimgtext2').val('')
+});
+$(document).on('pagebeforeshow', '#moddes', function () {
+  if (localStorage.id) {
+    var mid = localStorage.id,
+      url1 = rootURL + '/designer/' + mid,
+      secol, pricsrca;
+    $('#moid').val(localStorage.id);
+    if (url1) {
+      $.ajax({
+        type: 'GET',
+        url: url1,
+        success: function (data) {
+          var result = $.parseJSON(data)[0];
+          if (result.pic == '') {
+            picsrca = 'default.jpg';
+          } else {
+            picsrca = result.pic;
+          }
+          $('#moimggg').empty().append('<img class="photo" src="' + imgpic + picsrca + '">');
+          if (result.np == 1) {
+            $('#fi').empty().append('<select name="np" id="flip-6" data-role="flipswitch"><option value="1" selected>暱稱</option><option value="0">姓名</option></select>');
+          } else {
+            $('#fi').empty().append('<select name="np" id="flip-6" data-role="flipswitch"><option value="1">暱稱</option><option value="0" selected>姓名</option></select>');
+          }
+
+          $('#moname').text(result.desname);
+          $('#modesnick').val(result.desnick);
+          $('#moskill').val(result.skill);
+          $('#mointro').val(result.intro);
+          $('#mowtime').val(result.worktime);
+          $('#modid').val(mid);
+          $('#gk-desskill').selectmenu().selectmenu('refresh');
+          $("#flip-6").flipswitch().flipswitch("refresh");
+        },
+        error: function (jqXHR, textStatus, errorThrown) {}
+      });
+    }
+  } else {}
+});
+$(document).on('pageshow', '#moddes', function () {
+  desskill();
+
+});
+$(document).on('pageinit', '#moddes', function () {
+  $('#desfiledata').on('change', function () {
+    if ($(this).val() !== '') {
+      $('#fordesmy').submit();
+    }
+  });
+  $(document).on('click', '#desmodi', function () {
+    if ($('#flip-6').val() == 1 && $('#modesnick').val() == '') {
+      $('#chakpass').empty().append('若要顯示暱稱請先填入暱稱');
+      return false;
+    } else {
+      postrModi()
+    }
+  });
+});
+
+$(document).on('pagebeforeshow', '#desaa', function () {
+  var did = localStorage.id,
+    url1 = rootURL + '/desimg/' + did,
+    $eal = $('#choose');
+  $.ajax({
+    type: 'GET',
+    url: url1,
+    success: function (data) {
+      var result = $.parseJSON(data),
+        gname = result.length,
+        ame = '';
+      for (var i = 0; i < gname; i = i + 1) {
+        ame += '<input type="checkbox" value="' + result[i].dimgid + '"name="did[]" id="checkbox' + i + '"><label for="checkbox' + i + '"><img  class="photo" src="' + imgpic + result[i].imgname + '"></label>';
+      }
+      $eal.empty().append('<fieldset data-role="controlgroup">' + ame + '</fieldset>');
+      $('[type="checkbox"]').checkboxradio();
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+});
+
+$(document).on('pagebeforeshow', '#desres', function () {
+  if (localStorage.memname != '' && localStorage.mypho != '') {
+    if (localStorage.desid) {
+      var desid = localStorage.desid,
+        ordate = new Date(),
+        todate = ordate.getFullYear() + '-' + (ordate.getMonth() + 1) + '-' + ordate.getDate(),
+        url1 = rootURL + '/desres/' + desid + '/' + todate,
+        $ele = $('#drdetail');
+      if (url1) {
+        $.ajax({
+          type: 'GET',
+          url: url1,
+          success: function (data) {
+            var result = $.parseJSON(data);
+            var data1 = '';
+            $.each(result, function (ele1) {
+              if (ele1 == 0) {
+                data1 += '<div data-role="collapsible" data-collapsed="false" class="resdata ui-nodisc-icon ui-alt-icon ui-listview ui-listview-inset ui-corner-all ui-shadow"><h3>' + result[ele1].resdate + '</h3><ul data-rol="listview" class="reslist">';
+              } else {
+                data1 += '<div  data-role="collapsible" class="resdata ui-nodisc-icon ui-alt-icon ui-listview ui-listview-inset ui-corner-all ui-shadow"><h3>' + result[ele1].resdate + '</h3><ul data-rol="listview" class="reslist">';
+              }
+              var resttime = result[ele1].restime;
+              $.each(resttime, function (ele2, val2) {
+                if (ele1 == 0) {
+                  if (val2 == 2) {
+                    data1 += '<li><h2>今日休假</h2>';
+                    return false;
+                  } else if (val2 == 3) {
+                    data1 += '<li><h2>' + ele2 + '電話預約</h2>';
+                  } else if (val2 == 1) {
+                    data1 += '<li><h2>' + ele2 + '有預約</h2>';
+                  } else {
+                    data1 += '<li><h2>' + ele2 + '在勤</h2>';
+                  }
+                  data1 += '</li>';
+                } else {
+                  if (val2 == 2) {
+                    data1 += '<li><h2>今日休假</h2>';
+                    return false;
+                  } else if (val2 == 3) {
+                    data1 += '<li><h2>電話預約</h2>';
+                  } else if (val2 == 1) {
+                    data1 += '<li><h2>有預約</h2>';
+                  } else {
+                    data1 += '<li id="hidee' + ele2 + '"><a href="#resconf" data-desid="' + desid + '" data-date="' + result[ele1].resdate + '" data-time="' + ele2 + '" class="btnres">' + ele2 + '：預約</a>';
+                  }
+                  data1 += '</li>';
+                }
+              });
+              data1 += '</ul></div>';
+            });
+            $ele.empty().append(data1);
+            $('.resdata').collapsible().collapsible('refresh');
+            $('.reslist').listview().listview('refresh');
+          },
+          error: function (jqXHR, textStatus, errorThrown) {}
+        });
+      }
+    } else {}
+  } else {
+    alert('您的個人資料填寫不完全，無法進行預約');
+    $.mobile.changePage('#modinfo');
+  }
+});
+
+$(document).on('pageshow', '#desres', function () {
+  $("li").remove(":contains('00:00:00')");
+  $('.btnres').on('click', function (e) {
+    var date = $(this).data('date'),
+      desid = $(this).data('desid'),
+      time = $(this).data('time');
+    localStorage.removeItem("resdate");
+    localStorage.removeItem("restime");
+    localStorage.removeItem("desid");
+    localStorage.resdate = date;
+    localStorage.restime = time;
+    localStorage.resdesid = desid;
+  });
+});
+
+$(document).on('pagebeforeshow', '#resconf', function () {
+  if (localStorage.resdesid) resdesid = localStorage.resdesid;
+  if (localStorage.resdate) resdate = localStorage.resdate;
+  if (localStorage.restime) restime = localStorage.restime;
+  var $ele1 = $('#rcdetail'),
+    name = '';
+  url1 = rootURL + '/desname/' + resdesid;
+  if (url1) {
+    $.ajax({
+      type: 'GET',
+      url: url1,
+      success: function (data) {
+        var result = $.parseJSON(data)[0];
+        if (result.np == 0) {
+          name = result.desname;
+        } else {
+          name = result.desnick;
+        }
+        localStorage.seldes = name;
+        $ele1.empty().append('<h3>預約日期：</h3><p>' + resdate + '</p><h3>預約時間：</h3><h2 id="pore"></h2><p>' + restime + '</p><h3>預約設計師：</h3><p id="desname">' + name + '</p></h3>預約項目:</h3><div class="ui-grid-a" style="height:105px"><div class="ui-block-a" style="height:100%"><input name="vehicle[]" id="vehicleChkBox2" value="0" class="ck" type="checkbox"><label for="vehicleChkBox2">剪髮</label><input name="vehicle[]" id="vehicleChkBox3" value="0" class="ck" type="checkbox"><label for="vehicleChkBox3">燙髮</label></div><div class="ui-block-b" style="height:100%"><input name="vehicle[]" id="vehicleChkBox4" value="0" class="ck" type="checkbox"><label for="vehicleChkBox4">染髮</label><input name="vehicle[]" id="vehicleChkBox5" value="0" class="ck" type="checkbox"><label for="vehicleChkBox5">護髮</label></div></div><input name="vehicle[]" id="vehicleChkBox6" value="0" class="ck" type="checkbox"><label for="vehicleChkBox6">其他</label><div class="reply"></div><h3>付款方式：</h3><p><select id="selres" name="selres"><option value="1">現金(指定設計師)</option><option value="2">優惠卷</option></select></p>');
+        $('[type="checkbox"]').checkboxradio();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  }
+});
+$(document).on('pageshow', '#resconf', function () {
+  var resdesn = localStorage.seldes;
+  $('#selres').change(function () {
+    var val1 = $(this).val();
+    if (val1 == '1') {
+      $('#desname').empty().append(resdesn);
+    } else {
+      $('#desname').empty().append('不指定');
+      alert('使用優惠券不指定設計師');
+    }
+  });
+  $('.ck').on('change', function () {
+    if ($(this).prop('checked') == true) {
+      $(this).val('1');
+    } else if ($(this).prop('checked') == false) {
+      $(this).val('0');
+    }
+  });
+  $('#vehicleChkBox6').on('change', function () {
+    if ($(this).prop('checked') == true) {
+      var Newtext = '';
+      Newtext += '<label for="name">請輸入其他項目</label><input name="name" type="text" id="othertext" />';
+      $("#othertext").textinput().textinput("refresh");
+      $('.reply').empty();
+      $('.reply').append(Newtext);
+    } else if ($(this).prop('checked') == false) {
+      $('.reply').empty();
+    }
+  });
+  $('#btnconf').on('click', function () {
+    var c2 = $("#vehicleChkBox2").val(),
+      c3 = $("#vehicleChkBox3").val(),
+      c4 = $("#vehicleChkBox4").val(),
+      c5 = $("#vehicleChkBox5").val(),
+      c6 = $("#vehicleChkBox6").val(),
+      sel = $('#selres option:selected').val();
+    var checkd = (c2 + c3 + c4 + c5 + c6);
+    var otherte = $('#othertext').val();
+    if (localStorage.resdate) resdate = localStorage.resdate;
+    if (localStorage.restime) restime = localStorage.restime;
+    if (localStorage.resdesid) resdesid = localStorage.resdesid;
+    if (localStorage.id) resmid = localStorage.id;
+    if ($('#desname').text() == '不指定') {
+      alert('不指定設計師預約成功');
+    }
+
+    var rdata = '{"resdesid":"' + resdesid + '","resdate":"' + resdate + '","restime":"' + restime + '", "resmid":"' + resmid + '" ,"ckboxarray":"' + checkd + '","other":"' + otherte + '","payment":"' + sel + '","resphone":"' + localStorage.mypho + '"}';
+    $('#pore').empty();
+    postReser(rdata);
+  });
+});
+
+$(document).on('pageshow', '#resinfo', function () {
+  $(document).on('click', 'a#resalid', function () {
+    var salid = $(this).data('salid');
+    localStorage.removeItem("salid");
+    localStorage.salid = salid;
+  });
+  $(document).on('click', 'a#resdesid', function () {
+    var desid = $(this).data('desid');
+    localStorage.removeItem("desid");
+    localStorage.desid = desid;
+  });
+});
+$(document).on('pagebeforeshow', '#resinfo', function () {
+  if (localStorage.id) {
+    showresinfo(localStorage.id);
+  } else {}
+});
+
+$(document).on('pagebeforeshow', '#myshop', function () {
+  myhitoshop(localStorage.id);
+
+});
+$(document).on("pageshow", "#myshop", function () {
+  myhitoshop(localStorage.id);
+  $(document).on('click', 'a#shopid', function () {
+    var shid = $(this).data('shid');
+    localStorage.removeItem("shid");
+    localStorage.shid = shid;
+  });
+  $(document).on('click', 'a.qrbtn', function () {
+    var qrid = $(this).data('qrid');
+    var qrmid = $(this).data('qrmid');
+    var qr = $(this).data('qr');
+    localStorage.removeItem("qrid");
+    localStorage.removeItem("qrmid");
+    localStorage.removeItem("qr");
+    localStorage.qrid = qrid;
+    localStorage.qrmid = qrmid;
+    localStorage.qr = qr;
+  });
+});
+
+$(document).on('pagebeforeshow', '#myshopdet', function () {
+  var mid = localStorage.id,
+    shid = localStorage.shid,
+    sta, tatype, piice;
+  $.ajax({
+    type: 'GET',
+    url: rootURL + '/memshop/' + mid,
+    success: function (data) {
+      var result = $.parseJSON(data);
+      $.each(result, function (key, val) {
+        if (val.slid == shid) {
+          //(val.amount == 0) ? sta = '<h4 class="red">未付款<h4>' : sta = '<h4 class="blue">已付款<h4>';
+          if (val.pickup == 0) {
+            (val.taketype == 1) ? piice = '<a href="#saldet" id="mysh" data-salid="' + val.salonid + '">到店取貨:' + val.takeplace + '</a>' : piice = '<p>物流寄送:' + val.takeplace + '<P>';
+          } else {
+            piice = '<h4  class="blue">已取貨<h4>'
+          }
+          $('#memshopdet').empty().append(' <h2>項目</h2><P>' + val.prodname + '</p><div style="color:#38813c;font-weight:bolder;">$' + val.tprice + '</div><h2>取貨方式</h2>' + piice);
+        }
+      });
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+});
+$(document).on('pageshow', '#myshopdet', function () {
+  $('#mysh').on('click', function () {
+    var salid = $(this).data('salid');
+    localStorage.removeItem("salid");
+    localStorage.salid = salid;
+  });
+});
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('.blah').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+$(document).on('pageinit', '#myadimg', function () {
+  var updateTemplate = '';
+  $("#myfiledata").on('change', function (e) {　
+    if ($(this).val() !== "") {
+      readURL(this);
+      $.mobile.changePage('#imginput');
+    }
+    e.preventDefault();
+  });
+  $('#showmypic').on('click', ".slowimg", function (e) {
+    var fullMsg = $(this).closest('.full-msg'),
+      updateID = fullMsg.data('id'),
+      img = fullMsg.find('.myshowimg').attr('src'),
+      text = fullMsg.find('.myshowtext').text();
+    localStorage.removeItem("upimgid");
+    localStorage.upimgid = updateID;
+    localStorage.removeItem("upimg");
+    localStorage.upimg = img;
+    localStorage.removeItem("upimgtext");
+    localStorage.upimgtext = text;
+
+  });
+  $('#upimgbtn').on('click', function (e) {
+    $('#upformyimg').submit();
+  });
+});
+
+$(document).on('pagebeforeshow', '#upimginput', function () {
+  $('.upblah').attr('src', localStorage.upimg);
+  $('#upmyimgtext').val(localStorage.upimgtext);
+  $('#upimgid').val(localStorage.upimgid);
+});
+$(document).on('pageinit', '#imginput', function () {
+  var file = $("#myfiledata"),
+    text1 = $("#myimgtext1").val(),
+    text2 = $("#myimgtext2").val();
+  $("#imginputbtn").on('click', function (e) {
+    $("#myimgtext1").val($("#myimgtext2").val())
+    $('#formyimg').submit();
+  });
+});
+$(document).on('pagebeforeshow', '#imginput', function () {
+  $("#myimgtext2").val('')
+});
+$(document).on('pagebeforeshow', '#myadimg', function () {
+  if (localStorage.id) {
+    showmyadimg(localStorage.id);
+  } else {}
+});
+
+$(document).on('pagebeforeshow', '#delmyadimg', function () {
+  var did = localStorage.id,
+    url1 = rootURL + '/memimgs/' + did,
+    $eal = $('#delmy');
+  $.ajax({
+    type: 'GET',
+    url: url1,
+    success: function (data) {
+      var result = $.parseJSON(data),
+        gname = result.length,
+        ame = '';
+      for (var i = 0; i < gname; i = i + 1) {
+        ame += '<input type="checkbox" value="' + result[i].id + '"name="myid[]" id="checkbox' + i + '"><label for="checkbox' + i + '"><img  class="photo" src="' + result[i].img + '"></label>';
+      }
+      $eal.empty().append('<fieldset data-role="controlgroup">' + ame + '</fieldset>');
+      $('[type="checkbox"]').checkboxradio();
+    },
+    error: function (jqXHR, textStatus, errorThrown) {}
+  });
+});
+
+$(document).on("pageshow", "#qrmain", function () {
+  $('#qr1').empty().qrcode({
+    "size": 200,
+    "text": localStorage.qrid
+  });
+  $('#qr2').empty().append('<h3>' + localStorage.qr + '</h3>');
+});
+$(document).on('pagebeforeshow', '#qrmain', function () {
+  var qrid = localStorage.id,
+    url = '',
+    post1 = $.post(url);
+});
+
+$(document).on('pagebeforeshow', '#saladmin', function () {
+  var salonid = localStorage.id,
+    ordate = new Date(),
+    todate = ordate.getFullYear() + '-' + (ordate.getMonth() + 1) + '-' + ordate.getDate(),
+    url1 = rootURL + /salonder/ + salonid + '/' + todate,
+    get1 = $.get(url1);
+  var $sal = $('#salmin');
+  $.when(get1)
+    .done(function (data) {
+      var result = $.parseJSON(data);
+      var data1 = '';
+      $.each(result, function (ele1) {
+        if (ele1 == 0) {
+          data1 += '<div data-role="collapsible" data-collapsed="false" class="resdata ui-nodisc-icon ui-alt-icon ui-listview ui-listview-inset ui-corner-all ui-shadow"><h3>' + result[ele1].resdate + '</h3><ul data-rol="listview" class="reslist">';
+        } else {
+          data1 += '<div data-role="collapsible" class="resdata ui-nodisc-icon ui-alt-icon ui-listview ui-listview-inset ui-corner-all ui-shadow"><h3>' + result[ele1].resdate + '</h3><ul data-rol="listview" class="reslist">';
+        }
+        var resttime = result[ele1].restime;
+        $.each(resttime, function (ele2, val2) {
+          if (val2 == false) {
+            data1 += '<li>' + ele2 + ':<br><p>目前沒有預約</p></li>';
+          } else {
+            data1 += '<li>' + ele2 + ':<br><p>' + val2 + '</p></li>';
+          }
+        });
+        data1 += '</ul></div>';
+      });
+      $sal.empty().append(data1);
+      $('.resdata').collapsible().collapsible('refresh');
+    })
+    .fail(function () {});
+});
+$(document).on('pagebeforeshow', '#saladmin', function () {
+  $('#saqrpas1').val('');
+  $('#saqrpas2').val('');
+  $('#salchak').empty();
+  $('#saladform').hide();
+  $('#saldid').val(localStorage.id);
+});
+$(document).on('pagebeforeshow', '#salderpass', function () {
+  $('#salchan').empty();
+  $("input[type=password]").val('');
+});
+$(document).on('pagebeforeshow', '#saladmod', function (e) {
+
+});
+$(document).on('pageinit', '#saladsl', function () {
+  $('#saladqrcl').on('click', function () {
+    $('#saladform').show();
+  });
+  $('#saladno').on('click', function () {
+    $('#saladform').hide();
+    $("input[type=text]").val('')
+  });
+
+});
+
+$(document).on('pageinit', '#saldes', function () {
+  $('#saldesupd1').on('click', function (e) {
+    postdesupd(1);
+  })
+  $('#saldesupd0').on('click', function (e) {
+    postdesupd(0);
+  })
+  $('#salnewdes').on('click', function (e) {
+    var name = $('#saldesname').val(),
+      user = $('#salusername').val(),
+      pass = $('#salpd').val(),
+      stop = e.preventDefault();
+    if (name, user, pass == "") {
+      $('#newp').text('名稱、帳號、密碼有空白');
+      stop;
+    } else if (user.length, pass.length < 6) {
+      $('#newp').text('帳號、密碼小於6碼(長度太短)');
+      stop;
+    } else {
+      postnewdes(e)
+    }
+  });
+  $('#saldesup,#saldesout').on('click', '.salupdbtb', function (e) {
+    desupid = $(this).data('desupid');
+    localStorage.removeItem("desupid");
+    localStorage.desupid = desupid;
+  })
+});
+$(document).on('pagebeforeshow', '#saldes', function () {
+  $('#salhie').val(localStorage.id)
+  var a = "";
+  data = saldata[0].desname;
+  if (data != null) {
+    $.each(data, function (ele) {
+      img1 = data[ele].pic
+      if (img1 == "") img1 = 'default.jpg'
+      a += '<li class="ui-li-has-thumb full-upt"><a data-desupid="' + data[ele].id + '" data-rel="popup" data-transition="slideup"  href="#dify" class="ui-btn waves-effect waves-button waves-effect waves-button salupdbtb"> <img src="' + imgpic + img1 + '" class="ui-thumbnail ui-thumbnail-circular updimg"><h2 class="updh2">' + data[ele].desname + '</h2></a></li>'
+    })
+    $('#saldesup').empty().append(a)
+  }
+  $.ajax({
+    type: 'GET',
+    url: 'http://www.myhito.com.tw/lib1/salon/' + localStorage.id + '/0',
+    success: function (data) {
+      result = $.parseJSON(data)[0],
+      data0 = result.desname,
+      dsic0 = result.desnick,
+      b = '';
+      if (data0 != null) {
+        $.each(data0, function (ele) {
+          img0 = data0[ele].pic
+          if (img0 == '') img0 = 'default.jpg'
+          b += '<li class="ui-li-has-thumb full-upt"><a data-desupid="' + data0[ele].id + '" data-rel="popup" data-transition="slideup" href="#dify" class="ui-btn waves-effect waves-button waves-effect waves-button salupdbtb"> <img src="' + imgpic + img0 + '" class="ui-thumbnail ui-thumbnail-circular updimg"><h2 class="updh2">' + data0[ele].desname + '</h2></a></li>'
+        })
+      }
+      $('#saldesout').empty().append(b)
+    },
+  });
+});
+$(document).on("pageshow", "#saldes", function () {
+  $('#restform').on('click', function (e) {
+    $('#saldesform')[0].reset()
+  })
+});
+$(document).on('pagebeforeshow', '#salonmin', function () {
+  var result,
+    url = 'http://www.myhito.com.tw/lib1/salon/' + localStorage.id + '/'
+  $.ajax({
+    type: 'GET',
+    url: url + '1',
+    success: function (data) {
+      result = $.parseJSON(data)[0];
+      $('#smindata').text(result.salslogan),
+      $('#sminname').text(result.salname),
+      $('#sminph').text(result.salphone),
+      $('#sminadd').text(result.saladd),
+      $('#smintime').text(result.worktime),
+      $('#sminres').text(result.restdate);
+    },
+    complete: function (data) {
+      saldata = $.parseJSON(data.responseText);
+    }
+  });
+});
+$(document).on('pageinit', '#salonmin', function () {});
+$(document).on('pageinit', '#saladmod', function () {
+  $('#salmodbtn').on('click', function (e) {
+    postsalmod();
+  });
+});
+$(document).on('pagebeforeshow', '#saladmod', function () {
+  $('#salsloganmod').val(saldata[0].salslogan)
+  $('#salnamemod').val(saldata[0].salname)
+  $('#postcodemod').val(saldata[0].postcode)
+  $('#salphonemod').val(saldata[0].salphone)
+  $('#saladdmod').val(saldata[0].saladd)
+  $('#worktimemod').val(saldata[0].worktime)
+  $('#restdatemod').val(saldata[0].restdate)
+});
+$(document).on('pageinit', '#admin', function () {
+  $('#adminsele').on('change', function () {
+    var locations = $(this).val();
+    var code = '{"postid":"' + locations + '"}';
+    $.ajax({
+      type: 'POST',
+      url: rootURL + '/counties/' + locations,
+      data: code,
+      success: function (data) {
+        $('#adminseldiv').empty();
+        var result = $.parseJSON(data);
+        var showMsg;
+        $.each(result, function (key, val) {
+          $('#adminseldiv').append('<li id="contcity"><a data-saldd="' + val.saladd + '" data-salid="' + val.id + '"><h2 id="twsalon">' + val.salname + '</h2><h4>' + val.saladd + '</h4><h4 >' + val.salphone + '</h4></a></li>');
+        });
+        $('#adminseldiv').listview().listview('refresh');
+      },
+      error: function (jqXHR, textStatus, errorThrown) {}
+    });
+  });
+});
+$(document).on('pagebeforeshow', '#reportform', function () {
+  $('#reprep').on('change', function (e) {
+    var seriesLength = chart.series.length;
+    for (var i = seriesLength - 1; i > -1; i--) {
+      chart.series[i].remove();
+    }
+    getpod($('#repselect').val(), $(this).val())
+  });
+  chart = new Highcharts.Chart({
+    chart: {
+      renderTo: 'container',
+      type: 'line'
+    },
+    title: {
+      text: '銷售紀錄',
+      useHTML: false
+    },
+
+    credits: {
+      "enabled": false
+    },
+    yAxis: {
+      "title": {
+        "text": "數量"
+      }
+    },
+    series: []
+  });
+});
+$(document).on('pagebeforeshow', '#resreportform', function () {
+  $('#reprep2').on('change', function (e) {
+    var seriesLength = chart2.series.length;
+    for (var i = seriesLength - 1; i > -1; i--) {
+      chart2.series[i].remove();
+    }
+    getpod2($('#repselect2').val(), $(this).val())
+  });
+  chart2 = new Highcharts.Chart({
+    chart: {
+      renderTo: 'container2',
+      type: 'line'
+    },
+    title: {
+      text: '髮廊預約紀錄(年度前十名)',
+      useHTML: false
+    },
+
+    credits: {
+      "enabled": false
+    },
+    yAxis: {
+      "title": {
+        "text": "數量"
+      }
+    },
+    series: []
+  });
+});
+$(document).on('deviceready', function () {
+  $('#camera').click(function () {
+    navigator.camera.getPicture(cameraSuccess, error, {
+      correctOrientation: true,
+      quality: 75
+    });
+  });
+});
+
+function cameraSuccess(imageURI) {
+  var fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+  data[fileName] = imageURI;
+  alert('拍照完成');
+  var ft = new FileTransfer();
+  $.each(data, function (key, value) {
+    ft.upload(value, 'http://www.myhito.com.tw/lib1/photo/' + localStorage.id, uploadSuccess, error, {
+      fileName: key
+    });
+  });
+  data = {};
+  $('#list li span').html(0);
+}
+
+$(document).on('deviceready', function () {
+  $('#desbtnimg').click(function () {
+    navigator.camera.getPicture(cameraSuccess2, error, {
+      correctOrientation: true,
+      quality: 75
+    });
+  });
+});
+
+function cameraSuccess2(imageURI) {
+  var fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+  data[fileName] = imageURI;
+  alert('拍照完成');
+  var ft = new FileTransfer();
+  $.each(data, function (key, value) {
+    ft.upload(value, 'http://www.myhito.com.tw/lib1/photos/' + localStorage.id, uploadSuccess, error, {
+      fileName: key
+    });
+  });
+  data = {};
+}
+
+$(document).on('deviceready', function () {
+  $('#mycamera').click(function () {
+    navigator.camera.getPicture(cameraSuccess3, error, {
+      correctOrientation: true,
+      quality: 75
+    });
+  });
+});
+
+function cameraSuccess3(imageURI) {
+  var fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+  data[fileName] = imageURI;
+  alert('拍照完成');
+  var ft = new FileTransfer();
+  $.each(data, function (key, value) {
+    ft.upload(value, 'http://www.myhito.com.tw/lib1/photomem/' + localStorage.id, uploadSuccess, error, {
+      fileName: key
+    });
+  });
+  data = {};
+  $('#list li span').html(0);
+}
+
+function uploadSuccess(msg) {
+  location.reload();
+}
+
+function error(err) {
+  alert(err);
+}
+
+$(document).on("gkComponentsReady", function () {
+  function onSuccess(position) {
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
+  }
+
+  function onError(error) {
+
+  }
+  if (navigator.geolocation) {
+    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, {
+      timeout: 10000
+    });
+  }
+});
+
+$(document).on("pageinit", "#myshop", function () {
+  var $ele = $("#gk-1118DPPe"),
+    url = $ele.attr("service");
+  if (url) {
+    $.getJSON(url).complete(function (data) {
+      $("#gk-1118DPPe").gk("model", $.parseJSON(data.responseText));
+    });
+  }
+});
+
+$(document).on("gkComponentsReady", function () {
+  $("#gk-11148Pla-btn").on('click', function () {
+    cordova.plugins.barcodeScanner.scan(
+      function (result) {
+        var pdata = '{"id":"' + result.text + '","salonid":"' + localStorage.id + '"}';
+        $.ajax({
+          type: 'POST',
+          url: rootURL + '/postqr',
+          data: pdata,
+          success: function (data) {
+            var result = $.parseJSON(data);
+            if (result.status != 1) {
+              alert('優惠券並沒有掃到請重新掃描(請勿使用返回鍵)');
+            } else {
+              alert('使用成功');
+            }
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+
+          }
+        });
+
+      }, function (error) {});
+
+
+  });
+});
+      </script>
+      </head>
+  <body>
+    <!-- Page: index  -->
+<div id="index" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div id="gk-1114M6pc" is="gk-position"></div> 
+ <div role="main" class="ui-content eee"> 
+  <div id="indexslider"></div> 
+  <div id="indexspc"></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" data-tap-toggle="false" style="color:#9e9e9e;"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block  clr-btn-accent-pink  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: caon  -->
+<div id="caon" data-role="page" gk-app=""> 
+ <header class="bar bar-nav" data-tap-toggle="false" data-position="fixed"> 
+  <h3><a data-rel="back">&#x95DC;&#x9589;</a></h3> 
+ </header> 
+ <div role="main" class="ui-content"> 
+  <div class="list-block " id="saldiv"> 
+   <ul> 
+    <li class="full-sal" data-couid="1"> <a class="item-link list-button selectadd" data-rel="back">&#x57FA;&#x9686;&#x5E02;</a> </li> 
+    <li class="full-sal" data-couid="2"> <a class="item-link list-button selectadd" data-rel="back">&#x53F0;&#x5317;&#x5E02;</a> </li> 
+    <li class="full-sal" data-couid="3"> <a class="item-link list-button selectadd" data-rel="back">&#x65B0;&#x5317;&#x5E02;</a> </li> 
+    <li class="full-sal" data-couid="4"> <a class="item-link list-button selectadd" data-rel="back">&#x6843;&#x5712;&#x5E02;</a> </li> 
+    <li class="full-sal" data-couid="5"> <a class="item-link list-button selectadd" data-rel="back">&#x65B0;&#x7AF9;&#x5E02;</a> </li> 
+    <li class="full-sal" data-couid="6"> <a class="item-link list-button selectadd" data-rel="back">&#x65B0;&#x7AF9;&#x7E23;</a> </li> 
+    <li class="full-sal" data-couid="7"> <a class="item-link list-button selectadd" data-rel="back">&#x5B9C;&#x862D;&#x7E23;</a> </li> 
+    <li class="full-sal" data-couid="8"> <a class="item-link list-button selectadd" data-rel="back">&#x82D7;&#x6817;&#x7E23;</a> </li> 
+    <li class="full-sal" data-couid="9"> <a class="item-link list-button selectadd" data-rel="back">&#x53F0;&#x4E2D;&#x5E02;</a> </li> 
+    <li class="full-sal" data-couid="10"> <a class="item-link list-button selectadd" data-rel="back">&#x5F70;&#x5316;&#x7E23;</a> </li> 
+    <li class="full-sal" data-couid="11"> <a class="item-link list-button selectadd" data-rel="back">&#x5357;&#x6295;&#x7E23;</a> </li> 
+    <li class="full-sal" data-couid="12"> <a class="item-link list-button selectadd" data-rel="back">&#x96F2;&#x6797;&#x5E02;</a> </li> 
+    <li class="full-sal" data-couid="13"> <a class="item-link list-button selectadd" data-rel="back">&#x5609;&#x7FA9;&#x5E02;</a> </li> 
+    <li class="full-sal" data-couid="14"> <a class="item-link list-button selectadd" data-rel="back">&#x5609;&#x7FA9;&#x7E23;</a> </li> 
+    <li class="full-sal" data-couid="15"> <a class="item-link list-button selectadd" data-rel="back">&#x53F0;&#x5357;&#x5E02;</a> </li> 
+    <li class="full-sal" data-couid="16"> <a class="item-link list-button selectadd" data-rel="back">&#x9AD8;&#x96C4;&#x5E02;</a> </li> 
+    <li class="full-sal" data-couid="17"> <a class="item-link list-button selectadd" data-rel="back">&#x5C4F;&#x6771;&#x7E23;</a> </li> 
+    <li class="full-sal" data-couid="18"> <a class="item-link list-button selectadd" data-rel="back">&#x6F8E;&#x6E56;&#x7E23;</a> </li> 
+    <li class="full-sal" data-couid="19"> <a class="item-link list-button selectadd" data-rel="back">&#x82B1;&#x84EE;&#x7E23;</a> </li> 
+    <li class="full-sal" data-couid="20"> <a class="item-link list-button selectadd" data-rel="back">&#x53F0;&#x6771;&#x7E23;</a> </li> 
+    <li class="full-sal" data-couid="21"> <a class="item-link list-button selectadd" data-rel="back">&#x91D1;&#x9580;&#x7E23;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: NewPage2  -->
+<div id="NewPage2" data-role="page"> 
+ <div role="main" class="ui-content"></div> 
+</div> 
+<!-- Page: qrmain  -->
+<div id="qrmain" data-role="page"> 
+ <div role="main" class="ui-content"> 
+  <br> 
+  <div id="qr1" is="qrcode" style="text-align:center;line-height:100px;"></div> 
+  <div id="qr2"></div> 
+  <!--<hr><div class="ui-field-contain"><label for="gk-1120rV2L">轉讓</label><input type="text" name id="gk-1120rV2L" placeholder="請輸入轉讓者帳號"></div><a class="ui-btn" id="qrbtn">確定</a> --> 
+ </div> 
+ <div data-role="footer" data-position="fixed" class="can"> 
+  <a href="myshop" data-rel="back" class="ui-btn waves-effect waves-button waves-effect waves-button">&#x95DC;&#x9589;</a> 
+ </div> 
+</div> 
+<!-- Page: coldet  -->
+<div id="coldet" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#index" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px" data-rel="back"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div id="colcont" style=""></div> 
+ </div> 
+</div> 
+<!-- Page: salon1  -->
+<div id="salon1" data-role="page" class="eee"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content "> 
+  <ul data-role="listview" data-icon="false" class="ui-listview"> 
+   <li class="ui-last-child"> <a href="#salon2" class="ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-send"></i>&#x7E23;&#x5E02;&#x5730;&#x5340;</a> </li> 
+  </ul> 
+  <ul id="sallist" class="ui-nodisc-icon ui-alt-icon ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-autodividers="false" data-inset="true" data-filter="true"></ul> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block    waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: salon2  -->
+<div id="salon2" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px" data-rel="back"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content "> 
+  <div class="ui-grid-a ui-nodisc-icon ui-alt-icon " style="height:65px"> 
+   <div class="ui-block-a" style="height:100%"> 
+    <select id="gk-domsel" class="gktext "> <option value="">&#x7E23;&#x5E02;</option> </select> 
+   </div> 
+   <div class="ui-block-b" style="height:100%"> 
+    <select id="gk-domselo" class="gktext "> <option value="">&#x9109;&#x93AE;&#x5E02;&#x5340;</option> </select> 
+   </div> 
+  </div> 
+  <ul id="sallist2" class="ui-nodisc-icon ui-alt-icon ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-autodividers="false" data-inset="true" data-filter="true"></ul> 
+ </div> 
+</div> 
+<!-- Page: saldet  -->
+<div id="saldet" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center; " data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px" data-rel="back"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <a id="vougoin" class="ui-btn-right ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0.3px"><i class="zmdi zmdi-map zmd-fw"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content eee"> 
+  <div id="saldetslider"></div> 
+  <div id="saldetail"></div> 
+  <div id="salmap" is="gmap" style="width:100%;height:200px;" zoom="16" sensor="true" markervisible="true"></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-pin" style="font-size:1cm"></i> </a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-search" style="font-size:1cm"></i> </a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:1cm"></i> </a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:1cm"></i> </a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account-circle" style="font-size:1cm"></i> </a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: designer  -->
+<div id="designer" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center; " data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content eee ui-nodisc-icon ui-alt-icon "> 
+  <select id="gk-desele"> <option value="">&#x7E23;&#x5E02;</option> </select> 
+  <ul id="gk-deslist" data-role="listview" data-inset="true" class="ui-nodisc-icon ui-alt-icon ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block    waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: desdet  -->
+<div id="desdet" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center; " data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#designer" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px" data-rel="back"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content eee"> 
+  <div id="desdetail"></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block   waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: desres  -->
+<div id="desres" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#desdet" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px" data-rel="back"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div id="drdetail">
+   &#x8A2D;&#x8A08;&#x5E2B;&#x9810;&#x7D04;
+  </div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block    waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: desseeimg  -->
+<div id="desseeimg" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px" data-rel="back"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main"> 
+  <div id="seeimg"></div> 
+ </div> 
+</div> 
+<!-- Page: resconf  -->
+<div id="resconf" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#desres" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px" data-rel="back"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div id="rcdetail">
+   &#x8A2D;&#x8A08;&#x5E2B;&#x9810;&#x7D04;&#x78BA;&#x8A8D;
+  </div> 
+  <a class="ui-btn ui-btn-icon-left ui-shadow-icon ui-mini ui-icon-arrow-r" id="btnconf">&#x9001;&#x51FA;</a> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block    waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: products  -->
+<div id="products" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content eee"> 
+  <div data-role="tabs" id="prodtab"> 
+   <div data-role="navbar"> 
+    <ul> 
+     <li> <a href="#fragment-1" data-ajax="false" class="ui-btn-active">&#x5546;&#x54C1;</a> </li> 
+     <li> <a href="#fragment-2" data-ajax="false">&#x512A;&#x60E0;</a> </li> 
+    </ul> 
+   </div> 
+   <div id="fragment-1"></div> 
+   <div id="fragment-2">
+    111
+   </div> 
+  </div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block    waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: prodet  -->
+<div id="prodet" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#products" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px" data-rel="back"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content "> 
+  <div id="proddetail"></div> 
+  <form id="prd" action="http://www.myhito.com.tw/buyitemapp.php" method="POST" data-ajax="false" rel="external" target="_system" onsubmit="return prodform();"></form> 
+ </div> 
+ <div data-position="fixed" data-role="footer" data-tap-toggle="false" style="color:#9e9e9e;"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block   waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  clr-btn-accent-pink  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: login  -->
+<div id="login" data-role="page" gk-app=""> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div style="margin-top:15%"> 
+   <input name="username" id="username" placeholder="&#x5E33;&#x865F;&#xFF1A;abc@example.com" type="text"> 
+   <input name="password" id="password" placeholder="&#x5BC6;&#x78BC;" type="password"> 
+   <div class="ui-grid-a" style="height:60px"> 
+    <div class="ui-block-a" style="height:100%"> 
+     <button id="btn-login" class="ui-btn clr-btn-pink waves-effect waves-button waves-effect waves-button">&#x767B;&#x5165;</button> 
+    </div> 
+    <div class="ui-block-b" style="height:100%"> 
+     <div id="fb-root"></div> 
+     <button class="blue" id="fblogin_bb">&#x4F7F;&#x7528; FB &#x767B;&#x5165;</button> 
+    </div> 
+   </div> 
+   <hr> 
+   <h2 class="red" id="longin"></h2> 
+   <div class="ui-grid-a" style="height:60px"> 
+    <div class="ui-block-a" style="height:100%"> 
+     <button href="#forgetpass" style="color:#E91E63" class="ui-btn waves-effect waves-button waves-effect waves-button">&#x5FD8;&#x8A18;&#x5BC6;&#x78BC;</button> 
+    </div> 
+    <div class="ui-block-b" style="height:100%"> 
+     <button id="btn-goregf" class="ui-btn  clr-btn-accent-pink waves-effect waves-button waves-effect waves-button">&#x6211;&#x8981;&#x8A3B;&#x518A;</button> 
+    </div> 
+   </div> 
+  </div> 
+  <div></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block   waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: forgetpass  -->
+<div id="forgetpass" data-role="page" gk-app=""> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#login" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <p>&#x8ACB;&#x8F38;&#x5165;&#x60A8;&#x8A3B;&#x518A;&#x7684;&#x5E33;&#x865F;&#x8207;&#x96FB;&#x8A71;&#xFF0C;&#x78BA;&#x8A8D;&#x7121;&#x8AA4;&#x5F8C;&#xFF0C;&#x7CFB;&#x7D71;&#x6703;&#x5C07;&#x91CD;&#x8A2D;&#x5BC6;&#x78BC;&#xFF0C;&#x7C21;&#x8A0A;&#x5BC4;&#x81F3;&#x6B64;&#x624B;&#x6A5F;</p> 
+  <div style="margin-top:10%"> 
+   <input name="username" id="forname" placeholder="&#x5E33;&#x865F;&#xFF1A;abc@example.com" type="text"> 
+   <input name="phone" id="forphone" placeholder="&#x96FB;&#x8A71;&#xFF1A;" type="text"> 
+   <p id="fgp" class="red">&#xA0;</p> 
+   <button id="btn-forget" class="ui-btn clr-btn-pink waves-effect waves-button waves-effect waves-button">&#x78BA;&#x5B9A;</button> 
+  </div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block   waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: register  -->
+<div id="register" data-role="page" gk-app=""> 
+ <div data-role="header" style="height:50px; ;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#login" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px" data-rel="back"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div id="seleid12" data-role="panel" data-position="left" data-position-fixed="true" data-display="overlay"> 
+  <h3>MyHito</h3> 
+  <ul data-role="listview" class="leftmenu"></ul> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div id="regform"> 
+   <label for="reguser">&#x5E33;&#x865F;&#xFF1A;</label> 
+   <input name="reguser" id="reguser" placeholder="abc@example.com" type="email"> 
+   <label for="regpass">&#x5BC6;&#x78BC;&#xFF1A;</label> 
+   <input name="regpass" id="regpass" placeholder="&#x8ACB;&#x8F38;&#x5165;6~12&#x82F1;&#x6587;&#x6578;&#x5B57;" type="password"> 
+   <label for="password">&#x5728;&#x78BA;&#x8A8D;&#x4E00;&#x6B21;&#x5BC6;&#x78BC;&#xFF1A;</label> 
+   <input name="regpass2" id="regpass2" placeholder="&#x8ACB;&#x8F38;&#x5165;6~12&#x82F1;&#x6587;&#x6578;&#x5B57;" type="password"> 
+   <br> 
+   <h4 class="red" id="regichan"></h4> 
+   <a class="ui-btn" id="btn-regi">&#x8A3B;&#x518A;</a> 
+  </div> 
+  <div id="resut1"> 
+   <p>&#x9019;&#x500B;&#x5E33;&#x865F;&#x5DF2;&#x7D93;&#x8A3B;&#x518A;&#x904E;&#xFF0C;&#x8ACB;&#x81F3;&#x5FD8;&#x8A18;&#x5BC6;&#x78BC;&#xFF0C; <br>&#x8ACB;&#x8F38;&#x5165;&#x60A8;&#x7684;&#x5E33;&#x865F;&#x3001;&#x624B;&#x6A5F;&#xFF0C;&#x7CFB;&#x7D71;&#x5C07;&#x91CD;&#x65B0;&#x8A2D;&#x5B9A;&#x60A8;&#x7684;&#x5BC6;&#x78BC;</p> 
+   <button href="#forgetpass" style="color:#E91E63" class="ui-btn waves-effect waves-button waves-effect waves-button">&#x5FD8;&#x8A18;&#x5BC6;&#x78BC;</button> 
+  </div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block   waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: myinfo  -->
+<div id="myinfo" data-role="page"> 
+ <div data-role="header" style="text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a id="logoutbtn" class="ui-btn-right ui-btn waves-effect waves-button waves-effect waves-button " data-role="button" role="button" style="padding:0px"><i class="zmdi zmdi-power-off"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <div data-role="navbar" style="color:#E91E63;" data-iconpos="top"> 
+   <ul> 
+    <li> <a href="#resinfo" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" data-transition="slide"><i class="zmdi zmdi-calendar-note"></i>&#x9810;&#x7D04;&#x6642;&#x6BB5;</a> </li> 
+    <li> <a href="#myadimg" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" data-transition="slide"><i class="zmdi zmdi-local-see"></i>&#x76F8;&#x7C3F;&#x7167;&#x7247;</a> </li> 
+    <li> <a href="#myshop" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" data-transition="slide"><i class="zmdi  zmdi-format-list-bulleted"></i>&#x8CFC;&#x7269;&#x8A18;&#x9304;</a> </li> 
+    <li> <a href="#modinfo" id="modbtn" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" data-transition="slide"><i class="zmdi zmdi-settings "></i>&#x4FEE;&#x6539;&#x8CC7;&#x6599;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+ <div role="main" class="ui-content ee"> 
+  <div class="mybufo"> 
+   <h3 id="myhid" style="margin:0px;padding-top:20px"></h3> 
+   <h5 id="logtime"></h5> 
+  </div> 
+  <a href="#mypass" class="ui-btn clr-primary waves-effect waves-button waves-effect waves-button whi"><i class="zmdi zmdi-edit zmd-1x"></i>&#x4FEE;&#x6539;&#x5BC6;&#x78BC;</a> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block   waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: mypass  -->
+<div id="mypass" data-role="page"> 
+ <div data-role="header" style="text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#myinfo" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-rel="back" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <label for="moaffpass">&#x8F38;&#x5165;&#x820A;&#x5BC6;&#x78BC;</label> 
+  <input name="moaffpass" id="moaffpass" type="password"> 
+  <label for="password1">&#x8F38;&#x5165;&#x65B0;&#x5BC6;&#x78BC;</label> 
+  <input name="upass" id="mopassword1" type="password"> 
+  <label for="password2">&#x518D;&#x6B21;&#x8F38;&#x5165;&#x65B0;&#x5BC6;&#x78BC;</label> 
+  <input name="upass2" id="mopassword2" type="password"> 
+  <label for="uname"></label> 
+  <h4 id="myafftext" class="red"></h4> 
+  <a class="ui-btn waves-effect waves-button waves-effect waves-button" id="sentpassbtn">&#x9001;&#x51FA;</a> 
+ </div> 
+</div> 
+<!-- Page: modinfo  -->
+<div id="modinfo" data-role="page"> 
+ <div data-role="header" style="text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#myinfo" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <h6><b>&#x82E5;&#x5FC5;&#x586B;&#x70BA;&#x7A7A;&#xFF0C;&#x5C07;&#x7121;&#x6CD5;&#x9032;&#x884C;&#x9810;&#x7D04;&#x3001;&#x8CFC;&#x8CB7;</b></h6> 
+  <div id="mpinfo">
+   &#x500B;&#x4EBA;&#x8CC7;&#x8A0A;
+  </div> 
+  <h4 id="moiftwopass" class="red"></h4> 
+  <a class="ui-btn waves-effect waves-button waves-effect waves-button" id="sentbtn">&#x9001;&#x51FA;</a> 
+ </div> 
+</div> 
+<!-- Page: myadimg  -->
+<div id="myadimg" data-role="page"> 
+ <div data-role="header" style="text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#myinfo" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-rel="back" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content ee"> 
+  <div class="ui-grid-b" style="height:40px" data-position="fixed"> 
+   <div class="ui-block-a" style="height:100%"> 
+    <a id="mycamera" class="ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-local-see zmd-1x">&#x76F8;&#x6A5F;</i> </a> 
+   </div> 
+   <div class="ui-block-b" style="height:100%"> 
+    <form id="formyimg" class="form-horizontal" method="post" enctype="multipart/form-data" onsubmit="return myimg();"> 
+     <input id="myhiid" name="id" type="hidden"> 
+     <span class="ui-btn  fileinput-button"> <span><i class="zmdi zmdi-plus zmd-1x">&#x76F8;&#x7C3F;</i> </span> <input name="file" multiple data-role="none" id="myfiledata" type="file"> </span> 
+     <textarea id="myimgtext1" name="myimgtext">dsaasdsa</textarea> 
+    </form> 
+   </div> 
+   <div class="ui-block-c" style="height:100%"> 
+    <a href="#delmyadimg" class="ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-delete ui-pull-left zmd-1x">&#x522A;&#x9664;</i> </a> 
+   </div> 
+  </div> 
+  <hr style="margin:0"> 
+  <div id="showmypic"></div> 
+ </div> 
+</div> 
+<!-- Page: imginput  -->
+<div id="imginput" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#myadimg" id="imgcb" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content ee"> 
+  <img class="blah" style="width:100%;"> 
+  <div class="ui-field-contain" style="padding-left:30px;padding-right:30px;"> 
+   <textarea id="myimgtext2" placeholder="&#x76F8;&#x7247;&#x89E3;&#x8AAA;"></textarea> 
+  </div> 
+ </div> 
+ <div data-role="footer" data-tap-toggle="false" data-position="fixed" class="can"> 
+  <a id="imginputbtn" href="#myadimg" class="ui-btn waves-effect waves-button waves-effect waves-button">&#x5B8C;&#x6210;</a> 
+ </div> 
+</div> 
+<!-- Page: upimginput  -->
+<div id="upimginput" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#myadimg" id="imgcb" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content ee"> 
+  <img class="upblah" style="width:100%;"> 
+  <div class="ui-field-contain" style="padding-left:30px;padding-right:30px;"> 
+   <form id="upformyimg" class="form-horizontal" method="post" enctype="multipart/form-data" onsubmit="return upmyimg();"> 
+    <textarea id="upmyimgtext" name="myimgtext" placeholder="&#x76F8;&#x7247;&#x89E3;&#x8AAA;"></textarea> 
+   </form> 
+  </div> 
+ </div> 
+ <div data-role="footer" data-tap-toggle="false" data-position="fixed" class="can"> 
+  <a id="upimgbtn" href="#myadimg" class="ui-btn waves-effect waves-button waves-effect waves-button">&#x5132;&#x5B58;</a> 
+ </div> 
+</div> 
+<!-- Page: delmyadimg  -->
+<div id="delmyadimg" data-role="page"> 
+ <div data-role="header" style="text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#myadimg" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px" data-rel="back"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div id="delmy"></div> 
+  <a id="mycamera" onclick="del_myimg()" class="ui-btn">&#x522A;&#x9664;</a> 
+ </div> 
+</div> 
+<!-- Page: resinfo  -->
+<div id="resinfo" data-role="page"> 
+ <div data-role="header" style="text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#myinfo" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div id="mresinfo">
+   &#x6211;&#x7684;&#x9810;&#x7D04;
+  </div> 
+ </div> 
+</div> 
+<!-- Page: myshop  -->
+<div id="myshop" data-role="page"> 
+ <div data-role="header" style="text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#myinfo" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-rel="back" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <h4 class="can">&#x8CFC;&#x7269;&#x6E05;&#x55AE;</h4> 
+  <div id="memshop">
+   &#x6211;&#x7684;&#x8CFC;&#x7269;
+  </div> 
+  <ul id="gk-1118DPPe" data-role="listview" is="json-listview" data-inset="true"></ul> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext" style=""> 
+   <ul> 
+    <li> <a href="#salon1" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;</a> </li> 
+    <li> <a href="#designer" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-search" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+    <li> <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-block   waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-home" style="font-size:0.6cm"></i>&#x9996;&#x9801;</a> </li> 
+    <li> <a href="#products" class="ui-btn ui-btn-inline  ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-shopping-cart " style="font-size:0.6cm"></i>&#x8CFC;&#x8CB7;</a> </li> 
+    <li> <a href="#login" class="ui-btn ui-btn-inline  ui-btn-icon-block  waves-effect waves-button waves-effect waves-button" style="color: #E91E63;"><i class="zmdi zmdi-account-circle" style="font-size:0.6cm"></i> myhito</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: myshopdet  -->
+<div id="myshopdet" data-role="page"> 
+ <div role="main" class="ui-content"> 
+  <div id="memshopdet" class="can"></div> 
+ </div> 
+ <div data-role="footer" data-position="fixed" class="can"> 
+  <a href="myshop" data-rel="back" class="ui-btn waves-effect waves-button waves-effect waves-button">&#x95DC;&#x9589;</a> 
+ </div> 
+</div> 
+<!-- Page: desinfo  -->
+<div id="desinfo" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#moddes" class="ui-btn-right ui-btn waves-effect waves-button waves-effect waves-button" data-role="button" role="button" style="padding:0px"><i class="zmdi zmdi-settings zmd-1x"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content ee"> 
+  <div id="desinfomain"></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#desires" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style=""><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x672C;&#x5468;&#x9810;&#x7D04;</a> </li> 
+    <li> <a href="#desadimg" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>&#x4F5C;&#x54C1;</a> </li> 
+    <li> <a href="#desinfo" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-account " style="font-size:0.6cm"></i>&#x500B;&#x4EBA;&#x8CC7;&#x6599;</a> </li> 
+    <li> <a class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button logoutbtn"><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x767B;&#x51FA;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: despass  -->
+<div id="despass" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#desinfo" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <h4>&#x4FEE;&#x6539;&#x5BC6;&#x78BC;(&#x82E5;&#x4E0D;&#x60F3;&#x4FEE;&#x6539;&#x8ACB;&#x7559;&#x7A7A;)</h4> 
+  <label for="password1">&#x8F38;&#x5165;&#x820A;&#x5BC6;&#x78BC;&#xFF1A; <input name="affupass" id="affdespass" type="password"> </label> 
+  <label for="password1">&#x8F38;&#x5165;&#x65B0;&#x5BC6;&#x78BC;&#xFF1A; <input name="upass" id="modpas1" type="password"> </label> 
+  <label for="password2">&#x518D;&#x6B21;&#x8F38;&#x5165;&#x65B0;&#x5BC6;&#x78BC;&#xFF1A; <input name="upass2" id="modpas2" type="password"> </label> 
+  <h4 id="desafftext" class="red"></h4> 
+  <a class="ui-btn waves-effect waves-button waves-effect waves-button" id="despassbtn">&#x9001;&#x51FA;</a> 
+ </div> 
+</div> 
+<!-- Page: moddes  -->
+<div id="moddes" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#desinfo" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div class="resspc ui-nodisc-icon ui-alt-icon " data-role="collapsible" data-collapsed="false"> 
+   <h4>&#x66F4;&#x63DB;&#x5927;&#x982D;&#x7167;</h4> 
+   <div id="moimggg"></div> 
+   <div class="ui-grid-a" style="height:50px"> 
+    <div class="ui-block-a" style="height:100%"> 
+     <a id="desbtnimg" class="ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-local-see zmd-1x">&#x76F8;&#x6A5F;</i> </a> 
+    </div> 
+    <div class="ui-block-b" style="height:100%"> 
+     <form id="fordesmy" class="form-horizontal" method="post" enctype="multipart/form-data" onsubmit="return desmyimg();"> 
+      <input id="moid" name="id" value="" type="hidden"> 
+      <span class="ui-btn  fileinput-button"> <span><i class="zmdi zmdi-plus zmd-1x">&#x76F8;&#x7C3F;</i> </span> <input required name="file" multiple data-role="none" id="desfiledata" type="file"> </span> 
+     </form> 
+    </div> 
+   </div> 
+  </div> 
+  <form class="form-horizontal" id="desmodres" method="post" enctype="multipart/form-data" onsubmit="return  postrModi();"> 
+   <div class="resspc ui-nodisc-icon ui-alt-icon " data-role="collapsible" data-collapsed="false"> 
+    <h4>&#x500B;&#x4EBA;&#x8CC7;&#x6599;</h4> 
+    <label for="uname">&#x986F;&#x793A;&#xFF1A; 
+     <div id="fi"></div> </label> 
+    <h3 id="moname"></h3> 
+    <label for="desnick">&#x66B1;&#x7A31;&#xFF1A; <input name="desnick" id="modesnick" type="text"> </label> 
+    <label for="skill">&#x64C5;&#x9577;&#x98A8;&#x683C;&#xFF1A; <select id="gk-desskill"></select> <textarea rows="3" cols="40" id="moskill" name="skill"></textarea> </label> 
+    <label for="intro">&#x500B;&#x4EBA;&#x7C21;&#x4ECB;&#xFF1A; <textarea row="6" cols="30" id="mointro" name="intro"></textarea> </label> 
+    <label for="wtime">&#x4E0A;&#x73ED;&#x6642;&#x9593;&#xFF1A; <textarea row="4" cols="20" id="mowtime" name="wtime"></textarea> </label> 
+    <input name="id" id="modid" type="hidden"> 
+   </div> 
+   <h2 class="red" id="chakpass"></h2> 
+   <a href="#desinfo" id="desmodi" class="ui-btn clr-btn-pink waves-effect waves-button waves-effect waves-button">&#x9001;&#x51FA;</a> 
+  </form> 
+ </div> 
+</div> 
+<!-- Page: desadimg  -->
+<div id="desadimg" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content ee"> 
+  <div class="ui-grid-b" style="height:40px"> 
+   <div class="ui-block-a" style="height:100%"> 
+    <a id="camera" class="ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-local-see zmd-1x">&#x76F8;&#x6A5F;</i> </a> 
+   </div> 
+   <div class="ui-block-b" style="height:100%"> 
+    <form id="fordes" class="form-horizontal" method="post" enctype="multipart/form-data" onsubmit="return desimg();"> 
+     <input id="desadid" name="id" value="" type="hidden"> 
+     <span class="ui-btn  fileinput-button"> <span><i class="zmdi zmdi-plus zmd-1x">&#x76F8;&#x7C3F;</i> </span> <input required name="file" id="desimgfile" multiple data-role="none" type="file"> </span> 
+     <textarea id="desimgtext1" name="desimgtext"></textarea> 
+    </form> 
+   </div> 
+   <div class="ui-block-c" style="height:100%"> 
+    <a href="#desaa" class="ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-delete ui-pull-left zmd-1x">&#x522A;&#x9664;</i> </a> 
+   </div> 
+  </div> 
+  <div id="showpic"></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#desires" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style=""><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x672C;&#x5468;&#x9810;&#x7D04;</a> </li> 
+    <li> <a href="#desadimg" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>&#x4F5C;&#x54C1;</a> </li> 
+    <li> <a href="#desinfo" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account " style="font-size:0.6cm"></i>&#x500B;&#x4EBA;&#x8CC7;&#x6599;</a> </li> 
+    <li> <a class="logoutbtn ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x767B;&#x51FA;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: desimgput  -->
+<div id="desimgput" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#desadimg" id="imgcb" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" data-rel="back" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content ee"> 
+  <img class="blah" style="width:100%;"> 
+  <div class="ui-field-contain" style="padding-left:30px;padding-right:30px;"> 
+   <textarea id="desimgtext2" placeholder="&#x76F8;&#x7247;&#x89E3;&#x8AAA;"></textarea> 
+  </div> 
+ </div> 
+ <div data-role="footer" data-tap-toggle="false" data-position="fixed" class="can"> 
+  <a id="desimgbtn" href="#desadimg" class="ui-btn waves-effect waves-button waves-effect waves-button">&#x5B8C;&#x6210;</a> 
+ </div> 
+</div> 
+<!-- Page: desupimg  -->
+<div id="desupimg" data-role="page"> 
+ <div data-role="header" style="height:50px;text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#desadimg" id="imgcb" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content ee"> 
+  <img class="upblah" style="width:100%;"> 
+  <div class="ui-field-contain" style="padding-left:30px;padding-right:30px;"> 
+   <form id="desupformyimg" class="form-horizontal" method="post" enctype="multipart/form-data" onsubmit="return updesimg();"> 
+    <textarea id="updesimgtext" name="desimgtext" placeholder="&#x76F8;&#x7247;&#x89E3;&#x8AAA;"></textarea> 
+   </form> 
+  </div> 
+ </div> 
+ <div data-role="footer" data-tap-toggle="false" data-position="fixed" class="can"> 
+  <a id="desupimgbtn" href="#desadimg" class="ui-btn waves-effect waves-button waves-effect waves-button">&#x5132;&#x5B58;</a> 
+ </div> 
+</div> 
+<!-- Page: desaa  -->
+<div id="desaa" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#desadimg" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <form name="choose" id="choose"></form> 
+  <a class="ui-btn" id="M9vsCGP" onclick="del_imgclick();">&#x522A;&#x9664;</a> 
+ </div> 
+</div> 
+<!-- Page: desires  -->
+<div id="desires" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div data-role="popup" id="popupMenu"> 
+   <ul data-role="listview" data-inset="true" style="min-width:210px;"> 
+    <li> <a id="data1" data-transition="pop" data-rel="back" data-role="button" data-inline="true">&#x96FB;&#x8A71;&#x9810;&#x7D04;</a> </li> 
+    <li> <a id="data2" data-transition="pop" data-rel="back" data-role="button" data-inline="true">&#x9032;&#x4FEE;</a> </li> 
+   </ul> 
+  </div> 
+  <div id="idesres"></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#desires" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x672C;&#x5468;&#x9810;&#x7D04;</a> </li> 
+    <li> <a href="#desadimg" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>&#x4F5C;&#x54C1;</a> </li> 
+    <li> <a href="#desinfo" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-account " style="font-size:0.6cm"></i>&#x500B;&#x4EBA;&#x8CC7;&#x6599;</a> </li> 
+    <li> <a class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button logoutbtn"><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x767B;&#x51FA;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: logout  -->
+<div id="logout" data-role="page"> 
+ <div role="main" class="ui-content can" style="background-color:#E91E63;color:#fff;height:1000px"> 
+  <h2>&#x60A8;&#x5DF2;&#x7D93;&#x767B;&#x51FA;!</h2> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36vw;margin-top:5px; "> 
+  <h3>&#x5373;&#x5C07;&#x8FD4;&#x56DE;&#x9996;&#x9801;!</h3> 
+ </div> 
+</div> 
+<!-- Page: saladmin  -->
+<div id="saladmin" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a class="ui-btn-right ui-btn waves-effect waves-button waves-effect waves-button logoutbtn" data-role="button" role="button" style="padding:0px"><i class="zmdi zmdi-power-off"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <h3>&#x5404;&#x8A2D;&#x8A08;&#x5E2B;&#x7684;&#x9810;&#x7D04;</h3> 
+  <div id="salmin"></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#saladmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9810;&#x7D04;&#x8A73;&#x7D30;</a> </li> 
+    <li> <a href="#saladsl" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>QR&#x6383;&#x63CF;</a> </li> 
+    <li> <a href="#salonmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-settings " style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;&#x8A73;&#x7D30;</a> </li> 
+    <li> <a href="#saldes" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button "><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: salonmin  -->
+<div id="salonmin" data-role="page" style="background:#eee;"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a class="ui-btn-right ui-btn waves-effect waves-button waves-effect waves-button logoutbtn" data-role="button" role="button" style="padding:0px"><i class="zmdi zmdi-power-off"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content" style="padding:10px"> 
+  <div class="salondiv"> 
+   <div class="ui-grid-a" style="height:65px"> 
+    <div class="ui-block-a" style="height:100%"> 
+     <a href="#saladmod" class="ui-btn ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-edit zmd-2x"></i>&#x4FEE;&#x6539;&#x8A73;&#x7D30;</a> 
+    </div> 
+    <div class="ui-block-b" style="height:100%"> 
+     <a href="#salderpass" class="ui-btn ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-edit zmd-2x"></i>&#x4FEE;&#x6539;&#x5BC6;&#x78BC;</a> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="salondiv"> 
+   <h4 class="salh">&#x540D;&#x7A31;</h4> 
+   <span id="sminname" class="nd2-subhead" style="margin:0px;"></span> 
+  </div> 
+  <div class="salondiv"> 
+   <h4 class="salh">&#x5730;&#x5740;</h4> 
+   <span id="sminadd" class="nd2-subhead" style="margin:0px;"></span> 
+  </div> 
+  <div class="salondiv"> 
+   <h4 class="salh">&#x96FB;&#x8A71;</h4> 
+   <span id="sminph" class="nd2-subhead" style="margin:0px;"></span> 
+  </div> 
+  <div class="salondiv"> 
+   <h4 class="salh">&#x4ECB;&#x7D39;</h4> 
+   <span id="smindata" class="nd2-subhead" style="margin:0px;"></span> 
+  </div> 
+  <div class="salondiv"> 
+   <h4 class="salh">&#x958B;&#x5E97;&#x6642;&#x9593;</h4> 
+   <span id="smintime" class="nd2-subhead" style="margin:0px;"></span> 
+  </div> 
+  <div class="salondiv"> 
+   <h4 class="salh">&#x4F11;&#x606F;&#x65E5;</h4> 
+   <span id="sminres" class="nd2-subhead" style="margin:0px;"></span> 
+  </div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#saladmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9810;&#x7D04;&#x8A73;&#x7D30;</a> </li> 
+    <li> <a href="#saladsl" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>QR&#x6383;&#x63CF;</a> </li> 
+    <li> <a href="#salonmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-settings " style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;&#x8CC7;&#x8A0A;</a> </li> 
+    <li> <a href="#saldes" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button "><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: saladmod  -->
+<div id="saladmod" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a href="#salonmin" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <form class="form-horizontal" id="salonmodform" method="post" enctype="multipart/form-data" onsubmit="return  postsalmod();"> 
+   <input type="text" name="salname" id="salnamemod" placeholder="&#x9AEE;&#x5ECA;&#x540D;&#x7A31;"> 
+   <input type="text" name="saladd" id="saladdmod" placeholder="&#x9AEE;&#x5ECA;&#x5730;&#x5740;"> 
+   <input type="text" name="postcode" id="postcodemod" placeholder="&#x90F5;&#x905E;&#x5340;&#x865F;"> 
+   <input type="text" name="salphone" id="salphonemod" size="50" placeholder="&#x9AEE;&#x5ECA;&#x96FB;&#x8A71;"> 
+   <textarea id="salsloganmod" name="salslogan" placeholder="&#x9AEE;&#x5ECA;&#x4ECB;&#x7D39;"></textarea> 
+   <textarea id="worktimemod" name="worktime" placeholder="&#x9AEE;&#x5ECA;&#x958B;&#x5E97;&#x6642;&#x9593;"></textarea> 
+  </form> 
+  <a href="#salonmin" id="salmodbtn" class="ui-btn clr-btn-pink waves-effect waves-button waves-effect waves-button">&#x5B8C;&#x6210;</a> 
+ </div> 
+</div> 
+<!-- Page: salderpass  -->
+<div id="salderpass" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <a href="#salonmin" class="ui-btn-left ui-btn waves-effect waves-button waves-effect waves-button" style="padding:0px"><i class="zmdi zmdi-chevron-left" style="font-size:1cm"></i> </a> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <h2>&#x4FEE;&#x6539;&#x5BC6;&#x78BC;</h2> 
+  <div id="salpass"></div> 
+  <label for="gk-124m9dT">&#x8F38;&#x5165;&#x820A;&#x5BC6;&#x78BC;</label> 
+  <input name="password" id="salaffpass" placeholder="&#x8ACB;&#x8F38;&#x5165;6~12&#x82F1;&#x6587;&#x6578;&#x5B57;" type="password"> 
+  <label for="gk-124m9dT">&#x8F38;&#x5165;&#x5BC6;&#x78BC;</label> 
+  <input name="password" id="salpass1" placeholder="&#x8ACB;&#x8F38;&#x5165;6~12&#x82F1;&#x6587;&#x6578;&#x5B57;" type="password"> 
+  <label for="gk-124cyqU">&#x8ACB;&#x5728;&#x8F38;&#x5165;&#x4E00;&#x6B21;&#x5BC6;&#x78BC;</label> 
+  <input name="password2" id="salpass2" placeholder="&#x8ACB;&#x8F38;&#x5165;6~12&#x82F1;&#x6587;&#x6578;&#x5B57;" type="password"> 
+  <h4 class="red" id="salchan"></h4> 
+  <a class="ui-btn" id="chsalpass">&#x4FEE;&#x6539;</a> 
+ </div> 
+</div> 
+<!-- Page: saldes  -->
+<div id="saldes" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a class="ui-btn-right ui-btn waves-effect waves-button waves-effect waves-button logoutbtn" data-role="button" role="button" style="padding:0px"><i class="zmdi zmdi-power-off"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div data-role="popup" id="pPp" style="width:100%"> 
+   <div data-role="header"> 
+    <h1 class="nd-title">&#x65B0;&#x589E;&#x8A2D;&#x8A08;&#x5E2B;</h1> 
+   </div> 
+   <div data-role="content"> 
+    <form class="form-horizontal" id="saldesform" method="post" enctype="multipart/form-data" onsubmit="return postnewdes();"> 
+     <input type="hidden" id="salhie" name="mid"> 
+     <div class=" ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear"> 
+      <input type="text" name="desname" id="saldesname" placeholder="&#x5FC5;&#x586B;  &#x8A2D;&#x8A08;&#x5E2B;&#x540D;&#x7A31;"> 
+     </div> 
+     <div class=" ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear"> 
+      <input type="text" name="username" id="salusername" placeholder="&#x5FC5;&#x586B;  &#x5E33;&#x865F;"> 
+     </div> 
+     <div class=" ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear"> 
+      <input type="text" name="password" id="salpd" placeholder="&#x5FC5;&#x586B;  &#x5BC6;&#x78BC;"> 
+     </div> 
+     <div class=" ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear"> 
+      <input type="text" name="desnick" id="saldesnick" placeholder="&#x66B1;&#x7A31;"> 
+     </div> 
+     <textarea id="salintro" name="intro" placeholder="&#x7C21;&#x4ECB;"></textarea> 
+     <textarea id="salskill" name="skill" placeholder="&#x5C08;&#x9577;"></textarea> 
+     <textarea id="salworktim" name="worktime" placeholder="&#x5DE5;&#x4F5C;&#x6642;&#x9593;"></textarea> 
+    </form> 
+    <p id="newp">&#xA0;</p> 
+    <a id="salnewdes" data-rel="back" data-role="button" data-inline="true" class="ui-btn clr-btn-pink waves-effect waves-button waves-effect waves-button">&#x5B8C;&#x6210;</a> 
+   </div> 
+  </div> 
+  <ul data-role="listview" data-icon="false" class="ui-listview"> 
+   <li class="ui-last-child"> <a id="restform" data-rel="popup" data-transition="slideup" href="#pPp" class="ui-btn waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-plus"></i>&#x65B0;&#x589E;&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+  </ul> 
+  <div data-role="popup" id="dify"> 
+   <ul data-role="listview" data-inset="true" style="min-width:210px;"> 
+    <li> <a id="saldesupd1" data-rel="back" data-role="button" data-inline="true">&#x4E0A;&#x67B6;</a> </li> 
+    <li> <a id="saldesupd0" data-rel="back" data-role="button" data-inline="true">&#x4E0B;&#x67B6;</a> </li> 
+   </ul> 
+  </div> 
+  <h5 class="pd">&#x5728;&#x8077;</h5> 
+  <ul id="saldesup" data-role="listview" data-icon="false" class="ui-listview"></ul> 
+  <h5 class="pd">&#x96E2;&#x8077;</h5> 
+  <ul id="saldesout" data-role="listview" data-icon="false" class="ui-listview"></ul> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#saladmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9810;&#x7D04;&#x8A73;&#x7D30;</a> </li> 
+    <li> <a href="#saladsl" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>QR&#x6383;&#x63CF;</a> </li> 
+    <li> <a href="#salonmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-settings " style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;&#x8CC7;&#x8A0A;</a> </li> 
+    <li> <a href="#saldes" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button " style="color:#E91E63;"><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: saldesadd  -->
+<div id="saldesadd" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a class="ui-btn-right ui-btn waves-effect waves-button waves-effect waves-button logoutbtn" data-role="button" role="button" style="padding:0px"><i class="zmdi zmdi-power-off"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"></div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#saladmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9810;&#x7D04;&#x8A73;&#x7D30;</a> </li> 
+    <li> <a href="#saladsl" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>QR&#x6383;&#x63CF;</a> </li> 
+    <li> <a href="#salonmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-settings " style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;&#x8CC7;&#x8A0A;</a> </li> 
+    <li> <a href="#saldes" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button "><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: saladsl  -->
+<div id="saladsl" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a class="ui-btn-right ui-btn waves-effect waves-button waves-effect waves-button logoutbtn" data-role="button" role="button" style="padding:0px"><i class="zmdi zmdi-power-off"></i> </a> 
+ </div> 
+ <div data-role="main" class="ui-content"> 
+  <a id="gk-11148Pla-btn" is="barcode-scanner" class="ui-btn">QR&#x6383;&#x63CF;&#x6D88;&#x9664;</a> 
+  <a id="saladqrcl" class="ui-btn">QR&#x8F38;&#x5165;&#x6D88;&#x9664;</a> 
+  <form id="saladform" class="form-horizontal" method="post" enctype="multipart/form-data" onsubmit="return deltqr();"> 
+   <input name="salonid" id="saldid" type="hidden"> 
+   <h5>&#x8F38;&#x5165;APP QR &#x4F8B;:000232&#x6216;&#x53EA;&#x8F38;&#x5165;232</h5> 
+   <div class="ui-grid-a" style="height:65px"> 
+    <div class="ui-block-a" style="height:100%"> 
+     <input name="Scd" id="saqrpas1" placeholder="&#x8ACB;&#x8F38;&#x5165;Scd" type="text"> 
+    </div> 
+    <div class="ui-block-b" style="height:100%"> 
+     <input name="mcd" id="saqrpas2" placeholder="&#x8ACB;&#x8F38;&#x5165;mcd" type="text"> 
+    </div> 
+   </div> 
+   <h4 class="red" id="salchak"></h4> 
+   <div class="ui-grid-a" style="height:65px"> 
+    <div class="ui-block-a" style="height:100%"> 
+     <input id="salsub" value="&#x9001;&#x51FA;" type="submit"> 
+    </div> 
+    <div class="ui-block-b" style="height:100%"> 
+     <a id="saladno" class="ui-btn">&#x53D6;&#x6D88;</a> 
+    </div> 
+   </div> 
+  </form> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#saladmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9810;&#x7D04;&#x8A73;&#x7D30;</a> </li> 
+    <li> <a href="#saladsl" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>QR&#x6383;&#x63CF;</a> </li> 
+    <li> <a href="#salonmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-settings " style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;&#x8CC7;&#x8A0A;</a> </li> 
+    <li> <a href="#saldes" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button "><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: saldesres  -->
+<div id="saldesres" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+  <a class="ui-btn-right ui-btn waves-effect waves-button waves-effect waves-button logoutbtn" data-role="button" role="button" style="padding:0px"><i class="zmdi zmdi-power-off"></i> </a> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div id=""></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#saladmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x9810;&#x7D04;&#x8A73;&#x7D30;</a> </li> 
+    <li> <a href="#saladsl" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>QR&#x6383;&#x63CF;</a> </li> 
+    <li> <a href="#salonmin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-settings " style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;&#x8CC7;&#x8A0A;</a> </li> 
+    <li> <a href="#saldes" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button "><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x8A2D;&#x8A08;&#x5E2B;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: admin  -->
+<div id="admin" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div class="input-field"> 
+   <select id="adminsele"> <option value="0">&#x7E23;&#x5E02;</option> <option value="1">&#x57FA;&#x9686;&#x5E02;</option> <option value="2">&#x53F0;&#x5317;&#x5E02;</option> <option value="3">&#x65B0;&#x5317;&#x5E02;</option> <option value="4">&#x6843;&#x5712;&#x5E02;</option> <option value="5">&#x65B0;&#x7AF9;&#x5E02;</option> <option value="6">&#x65B0;&#x7AF9;&#x7E23;</option> <option value="7">&#x5B9C;&#x862D;&#x7E23;</option> <option value="8">&#x82D7;&#x6817;&#x7E23;</option> <option value="9">&#x53F0;&#x4E2D;&#x5E02;</option> <option value="10">&#x5F70;&#x5316;&#x7E23;</option> <option value="11">&#x5357;&#x6295;&#x7E23;</option> <option value="12">&#x96F2;&#x6797;&#x5E02;</option> <option value="13">&#x5609;&#x7FA9;&#x5E02;</option> <option value="14">&#x5609;&#x7FA9;&#x7E23;</option> <option value="15">&#x53F0;&#x5357;&#x5E02;</option> <option value="16">&#x9AD8;&#x96C4;&#x5E02;</option> <option value="17">&#x5C4F;&#x6771;&#x7E23;</option> <option value="18">&#x6F8E;&#x6E56;&#x7E23;</option> <option value="19">&#x82B1;&#x84EE;&#x7E23;</option> <option value="20">&#x53F0;&#x6771;&#x7E23;</option> <option value="21">&#x91D1;&#x9580;&#x7E23;</option> </select> 
+  </div> 
+  <ul id="adminseldiv" class="ui-nodisc-icon ui-alt-icon ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-autodividers="false" data-inset="true"></ul> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#reportform" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x6D88;&#x8CBB;&#x5831;&#x8868;</a> </li> 
+    <li> <a href="#resreportform" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>&#x9810;&#x7D04;&#x5831;&#x8868;</a> </li> 
+    <li> <a href="#admin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-settings " style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;&#x8CC7;&#x8A0A;</a> </li> 
+    <li> <a class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button logoutbtn"><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x767B;&#x51FA;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: reportform  -->
+<div id="reportform" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div class="ui-grid-a" style="height:55px"> 
+   <div class="ui-block-a" style="height:100%"> 
+    <div class="input-field"> 
+     <select id="repselect"> <option value="2022">2022</option> <option value="2021">2021</option> <option value="2020">2020</option> <option value="2019">2019</option> <option value="2018">2018</option> <option value="2017">2017</option> <option value="2016" selected>2016</option> <option value="2015">2015</option> <option value="2014">2014</option> <option value="2013">2013</option> <option value="2012">2012</option> <option value="2011">2011</option> <option value="2010">2010</option> <option value="2009">2009</option> <option value="2008">2008</option> <option value="2007">2007</option> <option value="2006">2006</option> <option value="2005">2005</option> </select> 
+    </div> 
+   </div> 
+   <div class="ui-block-b" style="height:100%"> 
+    <div class="input-field"> 
+     <select id="reprep"> <option value=""></option> <option value="1">&#x4E0A;&#x534A;&#x5B63;</option> <option value="2">&#x4E0B;&#x534A;&#x5B63;</option> </select> 
+    </div> 
+   </div> 
+  </div> 
+  <div id="container" style="width:100%;height:400px;float:left;"></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#reportform" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x6D88;&#x8CBB;&#x5831;&#x8868;</a> </li> 
+    <li> <a href="#resreportform" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>&#x9810;&#x7D04;&#x5831;&#x8868;</a> </li> 
+    <li> <a href="#admin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-settings " style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;&#x8CC7;&#x8A0A;</a> </li> 
+    <li> <a class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button logoutbtn"><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x767B;&#x51FA;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<!-- Page: resreportform  -->
+<div id="resreportform" data-role="page"> 
+ <div data-role="header" style="height:50px; text-align:center;" data-tap-toggle="false" data-position="fixed"> 
+  <img src="www.myhito.com.tw/imgs/heading3.png" is="image" style="height:36px;margin-top:5px; "> 
+ </div> 
+ <div role="main" class="ui-content"> 
+  <div class="ui-grid-a" style="height:55px"> 
+   <div class="ui-block-a" style="height:100%"> 
+    <div class="input-field"> 
+     <select id="repselect2"> <option value="2022">2022</option> <option value="2021">2021</option> <option value="2020">2020</option> <option value="2019">2019</option> <option value="2018">2018</option> <option value="2017">2017</option> <option value="2016" selected>2016</option> <option value="2015">2015</option> <option value="2014">2014</option> <option value="2013">2013</option> <option value="2012">2012</option> <option value="2011">2011</option> <option value="2010">2010</option> <option value="2009">2009</option> <option value="2008">2008</option> <option value="2007">2007</option> <option value="2006">2006</option> <option value="2005">2005</option> </select> 
+    </div> 
+   </div> 
+   <div class="ui-block-b" style="height:100%"> 
+    <div class="input-field"> 
+     <select id="reprep2"> <option value=""></option> <option value="1">&#x4E0A;&#x534A;&#x5B63;</option> <option value="2">&#x4E0B;&#x534A;&#x5B63;</option> </select> 
+    </div> 
+   </div> 
+  </div> 
+  <div id="container2" style="width:100%;height:400px;float:left;"></div> 
+ </div> 
+ <div data-position="fixed" data-role="footer" style="color:#9e9e9e;" data-tap-toggle="false"> 
+  <div data-role="navbar" data-iconpos="notext"> 
+   <ul> 
+    <li> <a href="#reportform" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-pin" style="font-size:0.6cm"></i>&#x6D88;&#x8CBB;&#x5831;&#x8868;</a> </li> 
+    <li> <a href="#resreportform" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button" style="color:#E91E63;"><i class="zmdi zmdi-camera" style="font-size:0.6cm"></i>&#x9810;&#x7D04;&#x5831;&#x8868;</a> </li> 
+    <li> <a href="#admin" class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-settings " style="font-size:0.6cm"></i>&#x9AEE;&#x5ECA;&#x8CC7;&#x8A0A;</a> </li> 
+    <li> <a class="ui-btn ui-btn-inline ui-btn-icon-block waves-effect waves-button waves-effect waves-button logoutbtn"><i class="zmdi zmdi-sign-in" style="font-size:0.6cm"></i>&#x767B;&#x51FA;</a> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div>
+  </body>
+</html>
+

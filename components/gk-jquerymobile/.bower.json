@@ -1,0 +1,25 @@
+{
+  "name": "gk-jquerymobile",
+  "authors": [
+    "EZoUI <ezoservice@icsc.com.tw>"
+  ],
+  "main": "all.html",
+  "keywords": [
+    "gk",
+    "jquery-mobile"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.ezoui.com/",
+  "devDependencies": {
+    "gk-loader": "master"
+  },
+  "_release": "153bb393b7",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "153bb393b7953dafbf32af56458cee925a4ebbc3"
+  },
+  "_source": "git://github.com/ezoapp/gk-jquerymobile.git",
+  "_target": "master",
+  "_originalSource": "ezoapp/gk-jquerymobile"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "flippant.js",
+  "homepage": "https://github.com/mintchaos/flippant.js",
+  "_release": "8bba9a4595",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8bba9a459501eec18ddf9333d41530c6ac52c4cc"
+  },
+  "_source": "https://github.com/mintchaos/flippant.js.git",
+  "_target": "*",
+  "_originalSource": "flippant.js"
+}

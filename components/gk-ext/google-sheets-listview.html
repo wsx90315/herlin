@@ -1,0 +1,69 @@
+<link rel="import" href="json-listview.html">
+<link rel="import" href="gk-google-sheets.html">
+
+<element name='google-sheets-listview'>
+
+  <template>
+    <div id="{{id}}">
+      <ul id='{{id}}_list' data-role='listview' repeat='{{repeat}}' style='{{style}}' data-autodividers='{{data-autodividers}}' data-divider-theme='{{data-divider-theme}}' data-filter-reveal='{{data-filter-reveal}}' data-filter='{{data-filter}}' data-filter-placeholder='{{data-filter-placeholder}}' data-filter-theme='{{data-filter-theme}}' data-icon='{{data-icon}}' data-inset='{{data-inset}}' data-split-icon='{{data-split-icon}}' data-split-theme='{{data-split-theme}}' data-theme='{{data-theme}}' data-count-theme='{{data-count-theme}}' is="json-listview">
+        <content></content>
+      </ul>
+      <gk-google-sheets id="{{id}}_sheet" key="{{key}}" headers="{{headers}}" gid="{{gid}}" range="{{range}}" query="{{query}}"></gk-google-sheets>
+    </div>
+  </template>
+
+  <script>
+  var utils = require('./js/utils'),
+    properties = ['key', 'headers', 'gid', 'range', 'query'];
+
+  function convertSheetData(table) {
+    var cellVal = function(cell) {
+        return cell ? ('f' in cell ? cell.f : cell.v) : "";
+      },
+      cols = $.map(table.cols, function(col) {
+        return col.label || col.id;
+      });
+    return $.map(table.rows, function(row) {
+      var o = {};
+      row.c.forEach(function(cell, idx) {
+        o[cols[idx]] = cellVal(cell);
+      });
+      return o;
+    });
+  }
+
+  registerElement('google-sheets-listview', {
+
+    init: function() {
+      var self = this,
+        $ele = self.$ele,
+        $list = $ele.find('#' + self.id + '_list'),
+        $sheet = $ele.find('#' + self.id + '_sheet');
+
+      utils.exposeProperties(properties, self,
+        function(attr) {
+          return $sheet.gk()[attr];
+        },
+        function(attr, val) {
+          $sheet.gk()[attr] = val;
+        }
+      );
+
+      $sheet.on('data', function(e, table) {
+        $list.gk('model', convertSheetData(table));
+        $list.show();
+      });
+
+      $(document).on('gkComponentsReady', function() {
+        $list.hide();
+      });
+    },
+
+    refresh: function() {
+      this.$ele.find('#' + this.id + '_sheet').gk('refresh');
+    }
+
+  });
+  </script>
+
+</element>

@@ -1,0 +1,19 @@
+{
+  "name": "gk-loader",
+  "authors": [
+    "EZoUI <ezoservice@icsc.com.tw>"
+  ],
+  "main": "gk-loader.js",
+  "keywords": [
+    "gk",
+    "loader"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.ezoui.com/",
+  "dependencies": {
+    "requirejs": "master",
+    "require-css": "master",
+    "require-text": "https://github.com/ezoapp/require-text.git#gk-fix",
+    "jquery.gk": "master"
+  }
+}

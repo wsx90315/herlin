@@ -1,0 +1,146 @@
+<element name='controlgroup-radio'>
+
+  <template>
+    <fieldset id='{{id}}' class='{{class}}' style='{{style}}' data-role='controlgroup' data-type='{{data-type}}' data-mini='{{data-mini}}' data-iconpos='{{data-iconpos}}' data-corners='{{data-corners}}' data-exclude-invisible='{{data-exclude-invisible}}' data-shadow='{{data-shadow}}' data-theme={{data-theme}}>
+      <content></content>
+    </fieldset>
+  </template>
+
+  <script>
+  function getParamNames(func) {
+    var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
+    var fnStr = func.toString().replace(STRIP_COMMENTS, '');
+    var result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(/([^\s,]+)/g);
+    return result === null ? [] : result;
+  };
+
+  registerElement('controlgroup-radio', {
+
+    init: function() {
+      this.templateHTML = this.$originEle.html();
+      this.onSelectCallback = function() {};
+    },
+
+    model: function(model) {
+      var self = this,
+        $controlgroup = self.$ele.find('.ui-controlgroup-controls');
+      self.$ele.find('.ui-radio').remove();
+      self.$ele.find('label').remove();
+
+      $(model).each(function(idx, obj) {
+        var temp = self.templateHTML;
+        for (var key in obj) {
+          var regex = new RegExp('{{' + key + '}}|\\${' + key + '}', "g");
+          temp = temp.replace(regex, obj[key]);
+        }
+
+        var $temp = $($.parseHTML('<div>' + temp + '</div>')),
+          $input = $temp.find('input[type="radio"]').data('vo', obj),
+          $label = $temp.find('label');
+        $input.attr('id', $input.attr('name') + idx);
+        $label.attr('for', $input.attr('name') + idx);
+
+        $input.on('click', function(e) {
+          if (typeof self.onSelectCallback === 'function') {
+            var params = getParamNames(self.onSelectCallback),
+              $input = $(this);
+            if (params.length == 1 && params[0] !== "vo") {
+              self.onSelectCallback($input);
+            } else {
+              var vo = $input.data('vo');
+              var providerParams = {
+                "event": e,
+                "vo": vo
+              };
+              var injectionParams = [];
+              $.each(params, function(idx, obj) {
+                injectionParams.push(providerParams[obj]);
+              });
+              if (typeof self.onSelectCallback !== null) {
+                self.onSelectCallback.apply(self, injectionParams);
+              }
+            }
+          } else {
+            self.onSelectCallback();
+          }
+        });
+
+        $controlgroup.append($input);
+        $controlgroup.append($label);
+      });
+
+      self.$ele.enhanceWithin();
+    },
+
+    apply: function(info) {
+      var self = this,
+        html = self.templateHTML,
+        $controlgroup = self.$ele.find('.ui-controlgroup-controls');
+      for (var property in info) {
+        if (info.hasOwnProperty(property)) {
+          var regex = new RegExp('{{' + property + '}}|\\${' + property + '}', "gi");
+          html = html.replace(regex, info[property]);
+        }
+      }
+
+      var $html = $('<div>' + html + '</div>');
+      $html.find('[data-readonly=Y]').each(function(idx, node) {
+        $(node).replaceWith($(node).html());
+      });
+
+      var $legendTpl = $html.find('legend');
+      var $legend = self.$ele.find('.ui-controlgroup-label > legend');
+      $legendTpl.each(function(idx, obj) {
+        $($legend[idx]).text($(obj).text());
+      });
+      $legendTpl.remove();
+      $controlgroup.html($html.html());
+      self.$ele.enhanceWithin();
+
+      self.$ele.find('input[type="radio"]').click(function(e) {
+        if (typeof self.onSelectCallback !== null) {
+          self.onSelectCallback($(this));
+        }
+      });
+    },
+
+    checked: function(value) {
+      if (typeof value != 'undefined') {
+        this.$ele.find('input[type="radio"][value="' + value + '"]').prop("checked", true).checkboxradio("refresh");
+      }
+      return this.$ele.find('input[type="radio"]:checked').val();
+    },
+
+    unchecked: function(value) {
+      if (typeof value != 'undefined') {
+        this.$ele.find('input[type="radio"][value="' + value + '"]').prop("checked", false).checkboxradio("refresh");
+      }
+      return this.$ele.find('input[type="radio"]:checked').val();
+    },
+
+    onSelect: function(callback) {
+      this.onSelectCallback = callback;
+    },
+
+    disable: function(rowNum) {
+      var $radio = this.$ele.find('input[type="radio"]');
+      if (rowNum !== undefined) {
+        $($radio[rowNum]).checkboxradio("disable");
+      } else {
+        $radio.checkboxradio("disable");
+      }
+    },
+
+    enable: function(rowNum) {
+      var $radio = this.$ele.find('input[type="radio"]');
+      if (rowNum !== undefined) {
+        $($radio[rowNum]).checkboxradio("enable");
+      } else {
+        $radio.checkboxradio("enable");
+      }
+    }
+
+  });
+  </script>
+
+</element>

@@ -1,0 +1,79 @@
+<script src="../bxSlider/dist/jquery.bxslider.min.js"></script>
+
+<element name='bxslider'>
+
+  <template>
+    <link rel="stylesheet" href="../bxSlider/dist/jquery.bxslider.min.css" />
+    <link rel="stylesheet" href="bxslider/cssreset.css" />
+    <div id='{{id}}' style='{{style}}'>
+      <ul style='{{style}}' class='bxslider'>
+        <content></content>
+      </ul>
+    </div>
+  </template>
+
+  <script>
+  function getPageId($ele) {
+    return '#' + $ele.closest('[data-role="page"]').attr('id');
+  }
+
+  registerElement('bxslider', {
+
+    bxSlider: null,
+
+    bxOptions: null,
+
+    init: function() {
+      var self = this,
+        pageId;
+
+      if ($.mobile) {
+        pageId = getPageId(self.$ele);
+        $(document).on('pagebeforeshow', pageId, function() {
+          self.hideSlider_();
+        });
+        $(document).on('pageshow', pageId, function() {
+          self.showSlider_();
+        });
+      } else {
+        self.hideSlider_();
+        $(document).on('gkComponentsReady', function() {
+          self.showSlider_();
+        });
+      }
+    },
+
+    hideSlider_: function() {
+      if (this.bxSlider === null) {
+        var $slider = this.$ele.children('ul.bxslider');
+        if ($slider.length) {
+          this.$ele.css('visibility', 'hidden');
+        }
+      }
+    },
+
+    showSlider_: function() {
+      if (this.bxSlider === null) {
+        var $slider = this.$ele.children('ul.bxslider');
+        if ($slider.length) {
+          this.bxSlider = $slider.bxSlider(this.bxOptions);
+          this.$ele.css('visibility', 'visible');
+        }
+      }
+    },
+
+    options: function(opts) {
+      if ($.isPlainObject(opts)) {
+        this.bxOptions = opts;
+        if (this.bxSlider) {
+          this.bxSlider.reloadSlider(opts);
+        }
+      } else {
+        return this.bxOptions;
+      }
+    }
+
+  });
+  </script>
+
+</element>

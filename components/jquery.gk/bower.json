@@ -1,0 +1,17 @@
+{
+  "name": "jquery.gk",
+  "authors": [
+    "EZoUI <ezoservice@icsc.com.tw>"
+  ],
+  "description": "JQuery GK Plugin",
+  "main": "jquery.gk.min.js",
+  "keywords": [
+    "jquery",
+    "gk"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.ezoui.com/",
+  "dependencies": {
+    "jquery": "1.9.1"
+  }
+}

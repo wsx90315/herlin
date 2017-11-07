@@ -1,0 +1,121 @@
+div.split-pane-frame {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    background: silver;
+}
+
+div.split-pane-divider {
+    width:8px!important;
+    background: url(images/bg.png);
+    box-shadow: -2px 0 6px rgba(0,0,0,.4)!important;
+    opacity:.95;
+}
+
+div.decoration {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /*padding: 0 1em;*/
+    overflow: hidden;
+}
+
+.split-pane-divider > div.collapseBtn {
+    top: 45%;
+    margin-top: -24px;
+    width: 8px!important;
+    height: 72px;
+    cursor: pointer;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-color: #8a8a8a;
+    border-left:1px solid #333;
+    border-right:1px solid #8a8a8a;
+    /*background-color: gray;*/
+}
+
+.split-pane-divider > div.collapseBtn:hover {
+    background-color: #8a8a8a;
+}
+
+.split-pane-divider > .collapseBtn.left {
+    background-image: url('images/btnbg-sprites.png');
+    background-position: 1px center;
+    background-repeat: no-repeat
+}
+
+.split-pane-divider > .collapseBtn.right {
+    background-image: url('images/btnbg-sprites.png');
+    background-position: -6px center;
+    background-repeat: no-repeat
+}
+
+.split-pane-divider > div:hover {
+    background-color: #333;
+    width:8px!important;
+}
+
+div.split-pane-divider:hover {
+    box-shadow: -2px 0 6px rgba(0,0,0,.4)!important;
+    cursor: e-resize;
+    width:8px!important;
+    opacity:.95;
+}
+
+div.split-pane-divider.drag {
+    opacity: 1;
+    width:8px!important;
+    box-shadow: -3px 0 6px rgba(0,0,0,.5)!important;
+}
+
+.split-pane-divider > .collapseBtn.left:hover {
+    background-image: url('images/btnbg-sprites.png');
+    background-position: -15px center;
+    background-repeat: no-repeat
+    width: 8px!important;
+    height: 72px;
+}
+
+.split-pane-divider > .collapseBtn.right:hover {
+    background-image: url('images/btnbg-sprites.png');
+    background-position: -22px center;
+    background-repeat: no-repeat
+    width: 8px!important;
+    height: 72px;
+}
+
+/* override split-pane.css */
+.split-pane.fixed-top > .split-pane-divider,
+.split-pane.fixed-bottom > .split-pane-divider,
+.split-pane.horizontal-percent > .split-pane-divider {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    cursor: ns-resize;
+    z-index: 2;
+}
+
+.split-pane.fixed-left > .split-pane-divider,
+.split-pane.fixed-right > .split-pane-divider,
+.split-pane.vertical-percent > .split-pane-divider {
+    position: absolute;
+    height: 100%;
+    cursor: ew-resize;
+    z-index: 2;
+}
+
+.split-pane.fixed-left > .split-pane-resize-shim,
+.split-pane.fixed-right > .split-pane-resize-shim,
+.split-pane.vertical-percent > .split-pane-resize-shim {
+    cursor: ew-resize;
+}
+
+.split-pane.fixed-top > .split-pane-resize-shim,
+.split-pane.fixed-bottom > .split-pane-resize-shim,
+.split-pane.horizontal-percent > .split-pane-resize-shim {
+    cursor: ns-resize;
+}

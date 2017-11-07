@@ -1,0 +1,65 @@
+<script src='mobipick/modernizr.custom.min.js'></script>
+<script src='mobipick/xdate.js'></script>
+<script src='mobipick/xdate.i18n.js'></script>
+<script src='mobipick/mobipick.js'></script>
+
+<element name='mobipick'>
+
+  <template>
+    <link rel='stylesheet' href='mobipick/css/mobipick.css'>
+    <div id='{{id}}' style='{{style}}' accuracy='{{accuracy}}' dateFormat='{{dateFormat}}' dateFormatMonth='{{dateFormatMonth}}' intlStdDate='{{intlStdDate}}' locale='{{locale}}'>
+      <input type='text' min='{{min}}' max='{{max}}' value='{{value}}' />
+    </div>
+  </template>
+
+  <script>
+  function mobiInit(obj) {
+    var $ele = obj.$ele,
+      style = obj.$originEle.attr('style'),
+      $input = obj.$ele.find('input');
+    $input.mobipick({
+      accuracy: $ele.attr('accuracy'),
+      dateFormat: $ele.attr('dateFormat'),
+      dateFormatMonth: $ele.attr('dateFormatMonth'),
+      intlStdDate: !('false' == $ele.attr('intlStdDate')),
+      locale: $ele.attr('locale')
+    });
+    !style || $input.parent().attr('style', style);
+    obj.$input = $input;
+  }
+
+  registerElement('mobipick', {
+
+    $input: '',
+
+    init: function() {
+      var $ele = this.$ele,
+        style = this.$originEle.attr('style');
+      !style || $ele.removeAttr('style');
+      $(document).one('pagecreate.mobipick', mobiInit(this));
+    },
+
+    value: function(val) {
+      if (this.$input) {
+        if (val !== undefined) {
+          return this.$input.mobipick("option", "date", val).mobipick("updateDateInput");
+        } else {
+          return this.$input.val();
+        }
+      } else {
+        return null;
+      }
+    },
+
+    getDateValue: function() {
+      return this.$input ? this.$input.mobipick("option", "date") : null;
+    },
+
+    reset: function() {
+      this.$input && this.$input.mobipick("option", "date", null).mobipick("updateDateInput");
+    }
+
+  });
+  </script>
+
+</element>

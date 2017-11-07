@@ -1,0 +1,25 @@
+{
+    "name": "gk-ext",
+    "authors": [
+        "EZoUI <ezoservice@icsc.com.tw>"
+    ],
+    "keywords": [
+        "gk"
+    ],
+    "license": "MIT",
+    "homepage": "http://www.ezoui.com/",
+    "dependencies": {
+        "split-pane": "0.4.0",
+        "bxSlider": "stevenwanderski/bxslider-4#fd0b8d4",
+        "flippant.js": "*",
+        "raty": "2.7.0",
+        "jquery.gk": "master",
+        "jquery.qrcode": "0.11.0",
+        "jquery-simpleweather": "3.1.0",
+        "jquery-validation": "1.13.0",
+        "swiper": "3.1.2"
+    },
+    "devDependencies": {
+        "gk-loader": "master"
+    }
+}

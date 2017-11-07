@@ -1,0 +1,16 @@
+{
+  "name": "gk-jquerymobile",
+  "authors": [
+    "EZoUI <ezoservice@icsc.com.tw>"
+  ],
+  "main": "all.html",
+  "keywords": [
+    "gk",
+    "jquery-mobile"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.ezoui.com/",
+  "devDependencies": {
+    "gk-loader": "master"
+  }
+}

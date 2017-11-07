@@ -1,0 +1,13 @@
+{
+  "name": "require-text",
+  "homepage": "https://github.com/ezoapp/require-text",
+  "_release": "ddff049e4d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "gk-fix",
+    "commit": "ddff049e4dc11ce8e8d1875cc7f4a9bd06bb5f0e"
+  },
+  "_source": "https://github.com/ezoapp/require-text.git",
+  "_target": "gk-fix",
+  "_originalSource": "https://github.com/ezoapp/require-text.git"
+}

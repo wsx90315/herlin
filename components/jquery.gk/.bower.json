@@ -1,0 +1,26 @@
+{
+  "name": "jquery.gk",
+  "authors": [
+    "EZoUI <ezoservice@icsc.com.tw>"
+  ],
+  "description": "JQuery GK Plugin",
+  "main": "jquery.gk.min.js",
+  "keywords": [
+    "jquery",
+    "gk"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.ezoui.com/",
+  "dependencies": {
+    "jquery": "1.9.1"
+  },
+  "_release": "8e9c7f1d24",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8e9c7f1d24aebf23958585643cb85fa6bd95e7a9"
+  },
+  "_source": "https://github.com/ezoapp/jquery.gk.git",
+  "_target": "master",
+  "_originalSource": "jquery.gk"
+}

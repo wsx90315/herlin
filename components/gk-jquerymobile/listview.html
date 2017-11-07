@@ -1,0 +1,193 @@
+<element name='listview'>
+
+  <template>
+    <ul id="{{id}}" data-role="listview" style="{{style}}" data-repeat="{{data-repeat}}"
+        data-debug="{{data-debug}}" data-autodividers="{{data-autodividers}}"
+        data-divider-theme="{{data-divider-theme}}" data-filter-reveal="{{data-filter-reveal}}"
+        data-filter="{{data-filter}}" data-filter-placeholder="{{data-filter-placeholder}}"
+        data-filter-theme="{{data-filter-theme}}" data-icon="{{data-icon}}" data-inset="{{data-inset}}"
+        data-split-icon="{{data-split-icon}}" data-split-theme="{{data-split-theme}}" data-theme="{{data-theme}}"
+        data-count-theme="{{data-count-theme}}">
+      <content></content>
+    </ul>
+  </template>
+
+  <script>
+    var utils = require('./js/utils');
+
+    registerElement('listview', {
+      init: function () {
+        var self = this,
+            $ele = self.$ele,
+            $originEle = self.$originEle,
+            tagName = $ele.prop('tagName').toLowerCase(),
+            originTagName = $originEle.prop('tagName').toLowerCase();
+        self.templateHTML = $originEle.html().trim();
+        (!$originEle.data('debug') && self.repeat()) && ($ele.html(''));
+        if (self.repeat()) {
+          self.modelData = [];
+          self.idxs = [];
+        }
+        
+        if (originTagName !== tagName) {
+          utils.changeTagNameOfGKElment(this, originTagName);
+        }
+      },
+
+      refresh: function () {
+        this.$ele.listview('refresh').enhanceWithin();
+      },
+
+      autodividersSelector: function (selector) {
+        if ($.isFunction(selector)) {
+          this.$ele.listview({
+            autodividersSelector: selector
+          });
+          this.refresh();
+        }
+      },
+
+      onRowEvent: function (event, handler) {
+        var self = this;
+        self.$ele.on(event, '>li:not([data-role="list-divider"])', function (eo) {
+          dispatchEventToHandler(this, eo, handler, self);
+        });
+      },
+
+      onRow: function (handler) {
+        if ($.isFunction(handler)) {
+          this.onRowEvent('click', handler);
+        } 
+      },
+      
+      onTapHold: function (handler) {
+        if ($.isFunction(handler)) {
+          this.onRowEvent('taphold', handler);
+        } 
+      },
+      
+      repeat: function (repeat) {
+        var $originEle = this.$originEle;
+        if ($.type(repeat).match(/boolean|string/)) {
+          $originEle.data('repeat', repeat);
+          if (repeat === false) {
+            delete this.modelData;
+            delete this.idxs;
+          }
+        } else {
+          return $originEle.data('repeat');
+        }
+      },
+
+      model: function (model) {
+        var self = this,
+            $ele = self.$ele,
+            repeat = self.repeat();
+        if (repeat && typeof model === 'object') {
+          $ele.html('');
+          self.idxs = [];
+          
+          if ($.isArray(model)) {
+            self.modelData = model;
+          } else if ($.type(repeat) === 'string' && $.isArray(model[repeat])) {
+            self.modelData = model[repeat];
+          } else {
+            self.modelData = [model];
+          }
+          
+          $.each(self.modelData, function (idx, data) {
+            var template = replaceTemplate(self.templateHTML, data),
+                $template = $(template),
+                sn = getUniqueStamp();
+            $template.attr('idx', sn).appendTo($ele).data('model', data);
+            self.idxs.push(sn);
+          });
+          self.refresh();
+        } else {
+          return self.modelData;
+        }
+      },
+
+      addRow: function (data) {
+        if (this.repeat()) {
+          var self = this,
+              $ele = self.$ele,
+              template = replaceTemplate(self.templateHTML, data),
+              $template = $(template),
+              sn = getUniqueStamp();
+          $template.attr('idx', sn).appendTo($ele).data('model', data);
+          self.modelData.push(data);
+          self.idxs.push(sn);
+          self.refresh();          
+        }
+      },
+      
+      insertRow: function (data, index) {
+        var self = this,
+            $ele = self.$ele,
+            idxs = self.idxs,
+            modelData = self.modelData;
+        if (self.repeat()) {
+          (idxs.indexOf(index) > -1) && (index = idxs.indexOf(index));
+          if (!$.isNumeric(index) || index >= idxs.length) {
+            self.addRow(data);
+          } else {
+            var template = replaceTemplate(self.templateHTML, data),
+                $template = $(template),
+                sn = getUniqueStamp();
+            $template.attr('idx', sn)
+                .insertBefore($ele.find('[idx="' + idxs[index] + '"]:first'))
+                .data('model', data);
+            modelData.splice(index, 0, data);
+            idxs.splice(index, 0, sn);
+            self.refresh();
+          }          
+        }
+      },
+      
+      removeRow: function (index) {
+        var self = this,
+            $ele = self.$ele,
+            idxs = self.idxs,
+            modelData = self.modelData;
+        if (self.repeat()) {
+          (idxs.indexOf(index) > -1) && (index = idxs.indexOf(index));
+          if ($.isNumeric(index) && index < idxs.length) {
+            $ele.find('[idx="' + idxs[index] + '"]').remove();
+            modelData.splice(index, 1);
+            idxs.splice(index, 1);
+          }          
+        } else {
+          $ele.find('>li:not([data-role="list-divider"]):eq(' + index + ')').remove();
+        }
+      }
+      
+    });
+    
+    function getUniqueStamp() {
+      return new Date().getTime() + '' + Math.random();
+    }
+
+    function replaceTemplate(template, data) {
+      for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+          var regex = new RegExp('{{' + key + '}}|\\${' + key + '}', "g");
+          template = template.replace(regex, data[key]);
+        }
+      }
+      return template;
+    }
+    
+    function dispatchEventToHandler (triggerEle, eo, handler, self) {
+      if (typeof handler === 'function') {
+        var $triggerEle = $(triggerEle),
+            model = $triggerEle.data('model'),
+            idx = (self.idxs) ? self.idxs.indexOf($triggerEle.attr('idx')) 
+                : self.$ele.find('>li:not([data-role="list-divider"])').index(triggerEle);
+        handler.apply(triggerEle, [eo, idx, model]);
+      }
+    }
+    
+  </script>
+
+</element>

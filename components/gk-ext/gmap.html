@@ -1,0 +1,352 @@
+<element name="gmap">
+
+  <template>
+    <div id="{{id}}" style="{{style}}" zoom="{{zoom}}" mapTypeId="{{mapTypeId}}" address="{{address}}" markerTitle="{{markerTitle}}" markerIcon="{{markerIcon}}" markerVisible="{{markerVisible}}">
+      <div style="display: none">
+        <content></content>
+      </div>
+    </div>
+  </template>
+
+  <script>
+
+    var DEFAULT_LOC = '22.604880,120.301818', 
+        LAT_LNG_PATTERN = /^(\d+\.?\d*)(\s*[,\s]\s*)(\d+\.?\d*)$/;
+
+    window.gmapReady = {
+      js: function () {
+        $(document).triggerHandler('gmapReady');
+      }
+    };
+
+    registerElement('gmap', {
+
+      init: function () {
+        var self = this,
+            $ele = self.$ele,
+            $page = $ele.closest('[data-role="page"]'),
+            api = 'http://maps.google.com/maps/api/js?' +
+                ($ele.attr('key') ? '&key=' + $ele.attr('key') : '') +
+                '&callback=gmapReady',
+            initialize = function () {
+              var location = (self.$originEle.text()) ? self.$originEle.text() : $ele.attr('address'),
+                  loc = $.trim(location) ? location : DEFAULT_LOC;
+              self.isReady = true;
+              self.options = {
+                zoom: $ele.attr('zoom') ? parseInt($ele.attr('zoom'), 10) : 12,
+                mapTypeId: $ele.attr('mapTypeId') ? $ele.attr('mapTypeId') : google.maps.MapTypeId.ROADMAP
+              };
+              self.addMarker(loc);
+              self.location(loc);
+            };
+
+        $(document).one('gmapReady', function () {
+          if ($page.length && !$page.hasClass('ui-page-active')) {
+            $(document.body).on('pagecontainershow', function (event, ui) {
+              if (!self.gmap && ui.toPage.attr('id') === $page.attr('id')) {
+                initialize();
+              }
+            });
+          } else {
+            initialize();
+          }
+        });
+
+        self.isReady = false;
+        require([api]);
+      },
+
+      location: function (location) {
+        var self = this,
+            $ele = self.$ele,
+            $page = $ele.closest('[data-role="page"]');
+        if ($.trim(location)) {
+          if (self.isReady) {
+            if (location.match(LAT_LNG_PATTERN)) {
+              self.options['center'] = new google.maps.LatLng(parseFloat(RegExp.$1, 10), parseFloat(RegExp.$3, 10));
+              setMap();
+            } else {
+              self.geocode(location, function (result) {
+                self.options['center'] = result[0].geometry.location;
+                setMap();
+              });
+            }
+          } else {
+            self.$originEle.text(location);
+          }
+        } else {
+          return self.$originEle.text();
+        }
+
+        function setMap() {
+          if (self.gmap) {
+            self.gmap.setZoom(parseInt(self.options['zoom'], 10));
+            self.gmap.setCenter(self.options['center']);
+          } else {
+            self.gmap = new google.maps.Map($ele[0], self.options);
+            // add markers
+            if (typeof self.markers === 'object') {
+              Object.keys(self.markers).forEach(function (loc) {
+                var marker = self.markers[loc];
+                if (!marker.map) {
+                  self.addMarker(marker.location, marker.title, marker.icon, marker.visible);
+                } 
+              });
+            }
+            // bind clickCallbacks
+            if ($.isArray(self.clickCallbacks)) {
+              self.clickCallbacks.forEach(function (callback) {
+                self.onclick(callback);
+              });
+            }
+            // set map size
+            if (!$ele.attr('style')) {
+              $ele.css({
+                width: document.documentElement.clientWidth * 0.85 + 'px',
+                height: document.documentElement.clientHeight * 0.8 + 'px'
+              });
+            }
+            $(document.body).on('pagecontainershow', function (event, ui) {
+              if (ui.toPage.attr('id') === $page.attr('id')) {
+                google.maps.event.trigger(self.gmap, 'resize');
+              }
+            });
+          }
+        }
+      },
+
+      address: function (addr) {
+        return this.location(addr);
+      },
+
+      geocode: function (location, callback) {
+        var self = this;
+        (typeof self.geodata === 'object') || (self.geodata = {});
+        if (typeof self.geodata[location] === 'object') {
+          callback(self.geodata[location]);
+          return;
+        }
+        
+        self.Geocoder = (self.Geocoder) || new google.maps.Geocoder();
+        
+        var options = (location.match(LAT_LNG_PATTERN)) ? {
+          location: {
+            lat: parseFloat(RegExp.$1, 10), 
+            lng: parseFloat(RegExp.$3, 10)
+          }
+        } : {
+          address: location
+        };
+        
+        self.Geocoder.geocode(options,
+            function (result, status) {
+              if (status === google.maps.GeocoderStatus.OK) {
+                self.geodata[location] = result;
+                callback(result);
+              }
+              if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+                var delay = Math.floor((Math.random() * 100) + 1) * 100;
+                console.log('#' + self.id + ' retry google map geocoder after ' + delay + ' ms...');
+                setTimeout(function () {
+                  self.geocode(location, callback);
+                }, delay);
+              }
+            }
+        );
+      },
+
+      nowPos: function (title, icon, visible) {
+        var self = this;
+        navigator.geolocation.getCurrentPosition(
+            function success(position) {
+              var loc = position.coords.latitude + ',' + position.coords.longitude;
+              self.addMarker(loc, title, icon, visible);
+              self.location(loc);
+            },
+            function error(err) {
+              console.warn('ERROR(' + err.code + '): ' + err.message);
+            }, {
+              enableHighAccuracy: true,
+              timeout: 5000,
+              maximumAge: 0
+            }
+        );
+      },
+
+      addMarker: function (location, title, icon, visible) {
+        var self = this,
+            markerTitle = (title) ? title : self.markerTitle(),
+            markerVisible = (typeof visible === 'boolean') ? visible : self.markerVisible();
+        (typeof markerVisible !== 'boolean') && (markerVisible = true);
+        (typeof self.markers === 'object') || (self.markers = {});
+        if ($.trim(location) && (!self.markers[location] || !self.markers[location].map)) {
+          if (self.gmap) {
+            if (location.match(LAT_LNG_PATTERN)) {
+              setMarker(new google.maps.LatLng(parseFloat(RegExp.$1, 10), parseFloat(RegExp.$3, 10)), icon);
+            } else {
+              self.geocode(location, function (result) {
+                setMarker(result[0].geometry.location, icon);
+              });
+            }
+          } else {
+            self.markers[location] = {
+              location: location,
+              title: title,
+              icon: icon,
+              visible: visible
+            };
+          }
+        }
+
+        function setMarker(latlng, icon) {
+          var markerIcon = (icon) ? icon : self.markerIcon(),
+              iconOption = (typeof markerIcon !== 'string') ? markerIcon : {
+                url: markerIcon,
+                scaledSize: new google.maps.Size(40, 40)
+              };
+          var marker = new google.maps.Marker({
+            map: self.gmap,
+            position: latlng,
+            title: markerTitle,
+            visible: markerVisible,
+            icon: iconOption
+          });
+          if (markerTitle) {
+            marker.addListener('click', function() {
+              new google.maps.InfoWindow({
+                content: markerTitle
+              }).open(self.gmap, marker);
+            });            
+          }
+          self.markers[location] = marker;
+          return marker;
+        }
+      },
+
+      removeMarker: function (location) {
+        var self = this;
+        (typeof self.markers === 'object') || (self.markers = {});
+        if (location) {
+          var marker = self.markers[location];
+          if (marker && marker.setMap) {
+            marker.setMap(null);
+          }
+          delete self.markers[location];
+          return marker;
+        } else {
+          Object.keys(self.markers).forEach(function (loc) {
+            self.removeMarker(loc);
+          });
+        }
+      },
+
+      markerTitle: function (title) {
+        var self = this,
+            $ele = self.$ele;
+        if (typeof title === 'string') {
+          if (typeof self.markers === 'object') {
+            Object.keys(self.markers).forEach(function (loc) {
+              (self.markers[loc]) && (self.markers[loc].setTitle(title));
+            });
+          }
+          $ele.attr('markerTitle', title);
+        } else {
+          return $ele.attr('markerTitle');
+        }
+      },
+
+      markerIcon: function (icon) {
+        var self = this,
+            $ele = self.$ele;
+        if (typeof icon === 'string') {
+          if (typeof self.markers === 'object') {
+            Object.keys(self.markers).forEach(function (loc) {
+              (self.markers[loc]) && (self.markers[loc].setIcon({
+                url: icon,
+                scaledSize: new google.maps.Size(40, 40)
+              }));
+            });
+          }
+          $ele.attr('markerIcon', icon);
+        } else {
+          return $ele.attr('markerIcon');
+        }
+      },
+
+      markerVisible: function (visible) {
+        var self = this,
+            $ele = self.$ele;
+        if (typeof visible === 'boolean') {
+          if (typeof self.markers === 'object') {
+            Object.keys(self.markers).forEach(function (loc) {
+              (self.markers[loc]) && (self.markers[loc].setVisible(visible));
+            });
+          }
+          $ele.attr('markerVisible', visible);
+        } else {
+          return $ele.attr('markerVisible') === 'true' || $ele.attr('markerVisible') === true;
+        }
+      },
+
+      onclick: function (callback) {
+        var self = this;
+        if (typeof callback === 'function') {
+          if (self.gmap) {
+            google.maps.event.addListener(self.gmap, 'click', function (event) {
+              callback({
+                lat: event.latLng.lat(),
+                lng: event.latLng.lng()
+              });
+            });
+          } else {
+            ($.isArray(self.clickCallbacks)) || (self.clickCallbacks = []);
+            self.clickCallbacks.push(callback);
+          }
+        }
+      },
+
+      height: function (h) {
+        if (h) {
+          this.$ele.height(h);
+          google.maps.event.trigger(this.gmap, "resize");
+        } else {
+          return this.$ele.height();
+        }
+      },
+
+      width: function (w) {
+        if (w) {
+          this.$ele.width(w);
+          google.maps.event.trigger(this.gmap, "resize");
+        } else {
+          return this.$ele.width();
+        }
+      },
+
+      zoom: function (zoom) {
+        if (zoom) {
+          if (this.gmap) {
+            this.options['zoom'] = zoom;
+            this.gmap.setZoom(parseInt(this.options['zoom'], 10));
+            this.gmap.setCenter(this.options['center']);
+          } else {
+            this.$ele.attr('zoom', zoom);
+          }
+        } else {
+          return this.gmap.zoom;
+        }
+      },
+      
+      map: function (map) {
+        if (typeof map === 'object') {
+          this.gmap = map;
+        } else {
+          return this.gmap;
+        }
+      }
+
+    });
+
+  </script>
+
+</element>

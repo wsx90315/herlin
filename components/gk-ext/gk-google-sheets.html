@@ -1,0 +1,95 @@
+<link rel="import" href="gk-ajax.html">
+
+<element name="gk-google-sheets">
+
+  <template>
+    <div id="{{id}}" key="{{key}}" headers="{{headers}}" gid="{{gid}}" range="{{range}}" tq="{{query}}">
+      <gk-ajax id="{{id}}_ajax" handleAs="script" auto="{{auto}}"></gk-ajax>
+    </div>
+  </template>
+
+  <script>
+  var ajaxCount = 0,
+    utils = require('./js/utils'),
+    properties = ['key', 'headers', 'gid', 'range', {
+      'query': 'tq'
+    }];
+
+  function getPageId($ele) {
+    return '#' + $ele.closest('[data-role="page"]').attr('id');
+  }
+
+  function makeAjax(key, $ele) {
+    var $ajax = $ele.find('#' + $ele.attr('id') + '_ajax'),
+      queryData = {};
+    ['headers', 'gid', 'range', 'tq'].forEach(function(attr) {
+      queryData[attr] = $ele.attr(attr);
+    });
+    queryData.tqx = 'responseHandler:' + makeCallback($ele, 'ggs_ajax' + ajaxCount++);
+    queryData.pli = 1;
+    if (key.substr(0, 1) === '0') {
+      $ajax.attr('url', 'https://spreadsheets.google.com/tq');
+      queryData.key = key;
+    } else {
+      $ajax.attr('url', 'https://docs.google.com/spreadsheets/d/' + key + '/gviz/tq');
+    }
+    $ajax.attr('data', JSON.stringify(queryData));
+    return $ajax;
+  }
+
+  function makeCallback($ele, id) {
+    window[id] = window[id] || function(resp) {
+      $.extend($ele.gk(), resp);
+      handleResponse($ele, resp);
+      delete window[id];
+    };
+    return id;
+  }
+
+  function handleResponse($ele, resp) {
+    switch (resp.status) {
+      case 'ok':
+        $ele.trigger('data', [resp.table]);
+        break;
+      case 'warning':
+        $ele.trigger('data', [resp.table, resp.warnings]);
+        break;
+      case 'error':
+        $ele.trigger('error', [resp.errors]);
+        break;
+      default:
+        break;
+    }
+  }
+
+  registerElement('gk-google-sheets', {
+
+    init: function() {
+      var self = this;
+      utils.exposeProperties(properties, self,
+        function(attr) {
+          return self.$ele.attr(attr);
+        },
+        function(attr, val) {
+          self.$ele.attr(attr, val);
+        }
+      );
+      if ($.mobile) {
+        $(document).on('pageinit', getPageId(self.$ele), function() {
+          self.refresh();
+        });
+      } else {
+        $(document).on('gkComponentsReady', function() {
+          self.refresh();
+        });
+      }
+    },
+
+    refresh: function() {
+      this.key && makeAjax(this.key, this.$ele).gk('go');
+    }
+
+  });
+  </script>
+
+</element>
